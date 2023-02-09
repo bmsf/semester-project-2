@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import './index.css';
+import Home from './pages/home';
 
 function App() {
 	return (
 		<div>
-			<h1 className='text-3xl font-bold underline'>Home</h1>
+			<Home />
 		</div>
 	);
 }
