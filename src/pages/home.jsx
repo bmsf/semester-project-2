@@ -1,9 +1,11 @@
-import { Hero, NavBar } from '../components/index';
+import Button from '../components/Button';
+import Hero from '../components/Hero';
+import Navbar from '../components/Navbar';
 
 function Home() {
 	return (
-		<div>
-			<NavBar backgroundColor='#CACBD7' />
+		<div className='relative'>
+			<Navbar backgroundColor='#CACBD7' />
 			<Hero />
 		</div>
 	);
