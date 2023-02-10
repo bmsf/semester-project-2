@@ -3,7 +3,7 @@ import { Hero, NavBar } from '../components/index';
 function Home() {
 	return (
 		<div>
-			<NavBar />
+			<NavBar backgroundColor='#CACBD7' />
 			<Hero />
 		</div>
 	);
