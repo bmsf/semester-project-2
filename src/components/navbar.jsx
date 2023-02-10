@@ -1,5 +1,5 @@
-function navbar() {
-	return <div>navbar</div>;
+function Navbar() {
+	return <div className='bg-black'>navbar</div>;
 }
 
-export default navbar;
+export default Navbar;

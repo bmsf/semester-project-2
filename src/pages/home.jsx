@@ -1,12 +1,12 @@
-import Hero from '../components/hero';
+import { Hero, NavBar } from '../components/index';
 
-function home() {
+function Home() {
 	return (
 		<div>
-			<Navbar/>
+			<NavBar />
 			<Hero />
 		</div>
 	);
 }
 
-export default home;
+export default Home;
