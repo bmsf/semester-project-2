@@ -1,5 +1,11 @@
 function Hero() {
-	return <h1 className='text-3xl text-primary'>Hero</h1>;
+	return (
+		<div className='bg-primary h-screen'>
+			<div>
+				<img src='' alt='' srcset='' />
+			</div>
+		</div>
+	);
 }
 
 export default Hero;
