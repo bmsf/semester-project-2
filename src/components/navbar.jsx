@@ -11,13 +11,27 @@ function Navbar({ backgroundColor }) {
 	return (
 		<header>
 			<nav
-				className='w-full p-5 flex justify-between items-center'
+				className='w-full p-5 flex justify-between items-center lg:p-10 '
 				style={{ backgroundColor: backgroundColor }}
 			>
 				<div className='w-16'>
 					<img src={logo} alt='Image of logo' />
 				</div>
-				<div className='absolute z-50 right-6'>
+				<ul className='hidden lg:flex gap-10'>
+					<li>
+						<a href='#'>Discover</a>
+					</li>
+					<li>
+						<a href='#'>Market</a>
+					</li>
+					<li>
+						<a href='#'>Best offers</a>
+					</li>
+				</ul>
+				<div className='hidden lg:block'>
+					<Button children='Bids' backgroundColor='black' textColor='white' />
+				</div>
+				<div className='absolute z-50 right-6 lg:left-6 lg:hidden'>
 					{!openMenu ? (
 						<Bars3Icon
 							className='h-8 w-8 cursor-pointer'
