@@ -12,6 +12,7 @@ module.exports = {
 			white: '#FFFFFF',
 			success: '#BFD6C5',
 			decline: '#D6B4B4',
+			gray: '#A5A5A6',
 		},
 	},
 	plugins: [],

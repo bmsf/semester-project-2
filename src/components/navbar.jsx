@@ -1,9 +1,9 @@
-import React from 'react';
-import logo from '../assets/logo-color.png';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { AnimatePresence, motion as m } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Button from './Button';
+import logo from '../assets/logo-color.png';
 
 function Navbar({ backgroundColor }) {
 	const [openMenu, setOpenMenu] = useState(false);
@@ -70,7 +70,9 @@ function Navbar({ backgroundColor }) {
 								</li>
 							</ul>
 							<div className='flex flex-col gap-5'>
-								<Button children='Login' backgroundColor='transparent' />
+								<Link to='/login'>
+									<Button children='Login' backgroundColor='transparent' />
+								</Link>
 								<Button
 									children='Sign Up'
 									backgroundColor='black'

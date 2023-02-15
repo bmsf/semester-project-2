@@ -23,8 +23,8 @@ function Hero() {
 	return (
 		<div className='bg-primary flex flex-col flex-1 items-center justify-center -z-10 relative'>
 			{images.map((image, index) => (
-				<div className='flex'>
-					<div className={`absolute ${image.styling}`} key={index}>
+				<div className='flex' key={index}>
+					<div className={`absolute ${image.styling}`}>
 						<img src={image.src} alt={`${image.alt}`} />
 					</div>
 				</div>
