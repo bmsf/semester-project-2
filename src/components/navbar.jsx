@@ -9,9 +9,9 @@ function Navbar({ backgroundColor }) {
 	const [openMenu, setOpenMenu] = useState(false);
 
 	return (
-		<header>
+		<>
 			<nav
-				className='w-full p-5 flex justify-between items-center lg:p-10 '
+				className='w-full p-5 flex justify-between items-center lg:p-10'
 				style={{ backgroundColor: backgroundColor }}
 			>
 				<div className='w-16'>
@@ -81,7 +81,7 @@ function Navbar({ backgroundColor }) {
 					</>
 				)}
 			</AnimatePresence>
-		</header>
+		</>
 	);
 }
 

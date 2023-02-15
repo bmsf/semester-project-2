@@ -4,7 +4,7 @@ module.exports = {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {},
-		fontFamily: { sans: 'Open Sans' },
+		fontFamily: { sans: 'Open Sans', title: 'Merriweather' },
 
 		colors: {
 			primary: '#CACBD7',

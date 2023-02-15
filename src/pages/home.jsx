@@ -3,10 +3,12 @@ import Navbar from '../components/Navbar';
 
 function Home() {
 	return (
-		<div className='relative'>
-			<Navbar backgroundColor='#CACBD7' />
-			<Hero />
-		</div>
+		<main className=''>
+			<div className='flex flex-col h-screen'>
+				<Navbar backgroundColor='#CACBD7' />
+				<Hero />
+			</div>
+		</main>
 	);
 }
 
