@@ -10,7 +10,13 @@ function Login() {
 		watch,
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = (data, e) => {
+		console.log(data, e);
+	};
+
+	const fetchProducts = () => {
+		
+	}
 
 	return (
 		<div className='flex flex-col justify-center items-center h-screen border w-full gap-5'>

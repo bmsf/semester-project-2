@@ -4,12 +4,12 @@ function FeaturedProducts() {
 	return (
 		<div className='h-screen'>
 			<div className='grid'>
-				<img src={image1} alt='' srcset='' />
-				<img src={image1} alt='' srcset='' />
-				<img src={image1} alt='' srcset='' />
-				<img src={image1} alt='' srcset='' />
-				<img src={image1} alt='' srcset='' />
-				<img src={image1} alt='' srcset='' />
+				<img src={image1} alt='' />
+				<img src={image1} alt='' />
+				<img src={image1} alt='' />
+				<img src={image1} alt='' />
+				<img src={image1} alt='' />
+				<img src={image1} alt='' />
 			</div>
 		</div>
 	);
