@@ -73,11 +73,13 @@ function Navbar({ backgroundColor }) {
 								<Link to='/login'>
 									<Button children='Login' backgroundColor='transparent' />
 								</Link>
-								<Button
-									children='Sign Up'
-									backgroundColor='black'
-									textColor='white'
-								/>
+								<Link to='/register'>
+									<Button
+										children='Sign Up'
+										backgroundColor='black'
+										textColor='white'
+									/>
+								</Link>
 							</div>
 						</m.div>
 					</>

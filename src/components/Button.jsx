@@ -1,7 +1,7 @@
 function Button({ children, backgroundColor, textColor, type = 'button' }) {
 	return (
 		<button
-			className='rounded-md font-semibold py-2 w-44 text-black bg-transparent text-lg border border-black'
+			className='rounded-md font-thin py-2 w-44 text-black bg-transparent text-lg border border-black'
 			style={{
 				backgroundColor: backgroundColor,
 				color: textColor,

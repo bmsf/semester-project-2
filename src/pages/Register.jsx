@@ -1,17 +1,26 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { EyeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+	EyeIcon,
+	LockClosedIcon,
+	UserIcon,
+	EnvelopeIcon,
+} from '@heroicons/react/24/outline';
 import Button from '../components/Button';
-import LoginAuth from '../api/auth/LoginAuth';
+import RegisterAuth from '../api/auth/RegisterAuth';
 
-function Login() {
+function Register() {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formData, setFormData] = useState({
+		name: '',
 		email: '',
+		avatar: '',
 		password: '',
 	});
 
-	const { email, password } = formData;
+	const { name, email, password } = formData;
+
+	const navigate = useNavigate();
 
 	const onChange = (e) => {
 		setFormData((prevState) => ({
@@ -22,20 +31,37 @@ function Login() {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		LoginAuth(formData);
+
+		RegisterAuth(formData);
 	};
 
 	return (
 		<div className='flex flex-col justify-center items-center h-screen border w-full gap-5'>
-			<h1 className='text-xl'>Login</h1>
+			<h1 className='text-xl'>Sign Up</h1>
 			<form
-				onSubmit={onSubmit}
 				className='flex flex-col w-2/3 md:w-1/3 lg:w-1/4 space-y-4 md:space-y-6'
+				onSubmit={onSubmit}
 			>
+				<div className='flex flex-col'>
+					<label className='mb-2 text-sm font-medium'>Name</label>
+					<div className='relative '>
+						<UserIcon className='absolute h-4 w-4 cursor-pointer top-4 left-3' />
+						<input
+							id='name'
+							className='pl-8 w-full border border-black rounded-lg p-2.5 text-gray'
+							value={name}
+							onChange={onChange}
+							required
+							pattern='^[\w]+$'
+							maxLength='20'
+							title='Name can maximum contain 20 letters and no numbers'
+						/>
+					</div>
+				</div>
 				<div className='flex flex-col'>
 					<label className='mb-2 text-sm font-medium'>Email</label>
 					<div className='relative '>
-						<UserIcon className='absolute h-4 w-4 cursor-pointer top-4 left-3' />
+						<EnvelopeIcon className='absolute h-4 w-4 cursor-pointer top-4 left-3' />
 						<input
 							id='email'
 							className='pl-8 w-full border border-black rounded-lg p-2.5 text-gray'
@@ -71,14 +97,14 @@ function Login() {
 				</div>
 				<Button
 					backgroundColor='black'
-					children='Login'
+					children='Sign Up'
 					textColor='white'
 					type='Submit'
 				/>
 				<p className=''>
-					Don't have an account?{' '}
-					<Link to={'/register'} className='font-extrabold'>
-						Sign Up
+					Already have an account?{' '}
+					<Link to={'/login'} className='font-extrabold'>
+						Login
 					</Link>
 				</p>
 			</form>
@@ -86,4 +112,4 @@ function Login() {
 	);
 }
 
-export default Login;
+export default Register;
