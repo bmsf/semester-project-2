@@ -3,13 +3,16 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
 
-function Home() {
+function Home({ handleLogout, profile }) {
 	return (
-		<main>
-			<Hero />
-			<FeaturedProducts />
-			<Footer />
-		</main>
+		<>
+			<Navbar handleLogout={handleLogout} profile={profile} />
+			<main>
+				<Hero />
+				<FeaturedProducts />
+				<Footer />
+			</main>
+		</>
 	);
 }
 

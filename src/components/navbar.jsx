@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	UserIcon,
 	Bars3Icon,
@@ -7,14 +7,20 @@ import {
 } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
 import Button from './Button';
 import logo from '../assets/logo-no-background.png';
 
 function Navbar({ backgroundColor, handleLogout, profile }) {
 	const [openMenu, setOpenMenu] = useState(false);
-	
 
 	const { name, email, credits, avatar } = profile || {};
+
+	if (openMenu) {
+		document.body.style.overflow = 'hidden';
+	} else {
+		document.body.style.overflow = 'unset';
+	}
 
 	return (
 		<>
@@ -23,7 +29,9 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 				style={{ backgroundColor: backgroundColor }}
 			>
 				<div className='w-16'>
-					<img src={logo} alt='Image of logo' />
+					<Link to='/'>
+						<img src={logo} alt='Image of logo' />
+					</Link>
 				</div>
 
 				<ul className='hidden lg:flex gap-10'>
@@ -106,29 +114,32 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 									</Link>
 								</li>
 							</ul>
-							<div className='flex flex-col gap-5'>
-								<Link to='/login' reloadDocument>
-									<Button
-										children='Login'
-										backgroundColor='black'
-										textColor='white'
-									/>
-								</Link>
-								<Link to='/register' reloadDocument>
-									<Button
-										children='Sign Up'
-										backgroundColor='transparent'
-										textColor='black'
-									/>
-								</Link>
-
-								{/* <Button
+							{profile ? (
+								<Button
 									children='Logout'
 									backgroundColor='black'
 									textColor='white'
 									reloadDocument
-								/> */}
-							</div>
+									handleClick={() => handleLogout}
+								/>
+							) : (
+								<div className='flex flex-col gap-5'>
+									<Link to='/login' reloadDocument>
+										<Button
+											children='Login'
+											backgroundColor='black'
+											textColor='white'
+										/>
+									</Link>
+									<Link to='/register' reloadDocument>
+										<Button
+											children='Sign Up'
+											backgroundColor='transparent'
+											textColor='black'
+										/>
+									</Link>
+								</div>
+							)}
 						</m.div>
 					</>
 				)}
