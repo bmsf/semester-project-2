@@ -1,4 +1,10 @@
-function Button({ children, backgroundColor, textColor, type = 'button' }) {
+function Button({
+	children,
+	backgroundColor,
+	textColor,
+	type = 'button',
+	onClick,
+}) {
 	return (
 		<button
 			className='rounded-md font-thin py-2 w-44 text-black bg-transparent text-lg border border-black'
@@ -7,6 +13,7 @@ function Button({ children, backgroundColor, textColor, type = 'button' }) {
 				color: textColor,
 			}}
 			type={type}
+			onClick={() => onClick}
 		>
 			{children}
 		</button>

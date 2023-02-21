@@ -6,10 +6,8 @@ import Navbar from '../components/Navbar';
 function Home() {
 	return (
 		<main>
-			<div className='flex flex-col h-screen'>
-				<Navbar backgroundColor='#CACBD7' />
-				<Hero />
-			</div>
+			<Hero />
+
 			<FeaturedProducts />
 			<Footer />
 		</main>

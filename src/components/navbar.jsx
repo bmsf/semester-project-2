@@ -3,10 +3,12 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import logo from '../assets/logo-color.png';
+import logo from '../assets/logo-no-background.png';
 
-function Navbar({ backgroundColor }) {
+function Navbar({ backgroundColor, handleLogout, user }) {
 	const [openMenu, setOpenMenu] = useState(false);
+
+	// const { name, email, credits, avatar } = user;
 
 	return (
 		<>
@@ -17,6 +19,8 @@ function Navbar({ backgroundColor }) {
 				<div className='w-16'>
 					<img src={logo} alt='Image of logo' />
 				</div>
+
+				{/* <div>{credits}</div> */}
 				<ul className='hidden lg:flex gap-10'>
 					<li>
 						<a href='#'>Discover</a>
@@ -53,11 +57,11 @@ function Navbar({ backgroundColor }) {
 							animate={{ x: '0%' }}
 							transition={{ duration: 0.75 }}
 							exit={{ x: '150%' }}
-							className='bg-primary w-full h-screen absolute right-0 top-0 flex flex-col align-middle items-center text-center text-3xl'
+							className='bg-primary w-full h-screen absolute right-0 top-0 flex flex-col align-middle items-center text-center text-3xl z-40'
 						>
 							<ul className='flex flex-col gap-10 mt-20'>
 								<li>
-									<a href='#'>Home</a>
+									<a href='./'>Home</a>
 								</li>
 								<li>
 									<a href='#'>Discover</a>
@@ -70,16 +74,23 @@ function Navbar({ backgroundColor }) {
 								</li>
 							</ul>
 							<div className='flex flex-col gap-5'>
-								<Link to='/login'>
+								<Link to='/login' reloadDocument>
 									<Button children='Login' backgroundColor='transparent' />
 								</Link>
-								<Link to='/register'>
+								<Link to='/register' reloadDocument>
 									<Button
 										children='Sign Up'
 										backgroundColor='black'
 										textColor='white'
 									/>
 								</Link>
+
+								<Button
+									children='Logout'
+									backgroundColor='black'
+									textColor='white'
+									reloadDocument
+								/>
 							</div>
 						</m.div>
 					</>

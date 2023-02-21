@@ -21,7 +21,7 @@ function Hero() {
 		},
 	];
 	return (
-		<div className='bg-primary flex flex-col flex-1 items-center justify-center -z-10 relative'>
+		<div className='bg-white flex flex-col h-screen items-center justify-center -z-10 relative'>
 			{images.map((image, index) => (
 				<div className='flex' key={index}>
 					<div className={`absolute ${image.styling}`}>
@@ -29,7 +29,7 @@ function Hero() {
 					</div>
 				</div>
 			))}
-			<h1 className='font-title text-white text-6xl md:text-8xl lg:text-9xl font-light'>
+			<h1 className='font-title text-black text-6xl md:text-8xl lg:text-9xl font-light'>
 				<span className='text-xl'>Auction</span>
 				<br />
 				BidCircle
