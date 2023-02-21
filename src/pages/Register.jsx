@@ -36,7 +36,7 @@ function Register() {
 	};
 
 	return (
-		<div className='flex flex-col justify-center items-center h-screen border w-full gap-5'>
+		<div className='flex flex-col justify-center items-center h-screen w-full gap-5'>
 			<h1 className='text-xl'>Sign Up</h1>
 			<form
 				className='flex flex-col w-2/3 md:w-1/3 lg:w-1/4 space-y-4 md:space-y-6'

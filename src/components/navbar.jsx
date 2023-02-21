@@ -61,16 +61,24 @@ function Navbar({ backgroundColor, handleLogout, user }) {
 						>
 							<ul className='flex flex-col gap-10 mt-20'>
 								<li>
-									<a href='./'>Home</a>
+									<Link to='./' reloadDocument>
+										Home
+									</Link>
 								</li>
 								<li>
-									<a href='#'>Discover</a>
+									<Link to='./' reloadDocument>
+										Discover
+									</Link>
 								</li>
 								<li>
-									<a href='#'>Categories</a>
+									<Link to='./' reloadDocument>
+										Market
+									</Link>
 								</li>
 								<li>
-									<a href='#'></a>
+									<Link to='./' reloadDocument>
+										Best offers
+									</Link>
 								</li>
 							</ul>
 							<div className='flex flex-col gap-5'>

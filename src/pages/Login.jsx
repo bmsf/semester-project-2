@@ -26,7 +26,7 @@ function Login() {
 	};
 
 	return (
-		<div className='flex flex-col justify-center items-center h-screen border w-full gap-5'>
+		<div className='flex flex-col justify-center items-center h-screen w-full gap-5'>
 			<h1 className='text-xl'>Login</h1>
 			<form
 				onSubmit={onSubmit}
