@@ -38,7 +38,7 @@ function Login() {
 						<UserIcon className='absolute h-4 w-4 cursor-pointer top-4 left-3' />
 						<input
 							id='email'
-							className='pl-8 w-full border border-black rounded-lg p-2.5 text-gray'
+							className='pl-8 w-full border border-black rounded-lg p-2.5 text-black'
 							value={email}
 							onChange={onChange}
 							required
@@ -48,7 +48,7 @@ function Login() {
 					</div>
 				</div>
 				<div className='flex flex-col'>
-					<label className='mb-2 text-sm font-medium text-gray-900'>
+					<label className='mb-2 text-sm font-medium text-black'>
 						Password
 					</label>
 					<div className='relative'>
@@ -56,7 +56,7 @@ function Login() {
 						<input
 							id='password'
 							type={showPassword ? 'text' : 'password'}
-							className='pl-8 w-full border border-black rounded-lg p-2.5 text-gray'
+							className='pl-8 w-full border border-black rounded-lg p-2.5 text-black'
 							value={password}
 							onChange={onChange}
 							required

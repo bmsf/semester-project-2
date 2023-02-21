@@ -9,9 +9,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
 function App() {
-	const [token, setToken] = useState();
+	const [token, setToken] = useState(storage.load('token'));
 
-	const [user, setUser] = useState();
+	console.log(token);
+
+	const [profile, setProfile] = useState(storage.load('profile'));
 
 	const handleLogout = () => {
 		localStorage.removeItem('token');
@@ -19,18 +21,18 @@ function App() {
 		window.location.replace('/login');
 	};
 
-	useEffect(() => {
-		const user = JSON.parse(localStorage.getItem('profile'));
-		user ? setUser(user) : null;
+	// useEffect(() => {
+	// 	const user = JSON.parse(localStorage.getItem('profile'));
+	// 	user ? setUser(user) : null;
 
-		const token = JSON.parse(localStorage.getItem('token'));
-		token ? setToken(token) : null;
-	}, []);
+	// 	const token = JSON.parse(localStorage.getItem('token'));
+	// 	token ? setToken(token) : null;
+	// }, []);
 
 	return (
 		<Router>
 			<div className='flex flex-col h-screen'>
-				<Navbar handleLogout={handleLogout} user={user} />
+				<Navbar handleLogout={handleLogout} profile={profile} />
 				<Routes>
 					<Route exact path='/' element={<Home />} />
 					<Route exact path='/login' element={<Login />} />

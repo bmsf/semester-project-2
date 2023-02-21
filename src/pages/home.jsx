@@ -7,7 +7,6 @@ function Home() {
 	return (
 		<main>
 			<Hero />
-
 			<FeaturedProducts />
 			<Footer />
 		</main>
