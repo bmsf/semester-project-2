@@ -6,12 +6,16 @@ import Navbar from '../components/Navbar';
 function Home({ handleLogout, profile }) {
 	return (
 		<>
-			<Navbar handleLogout={handleLogout} profile={profile} />
-			<main>
+			<div className='flex flex-col h-screen'>
+				<Navbar
+					handleLogout={handleLogout}
+					profile={profile}
+					backgroundColor='#CACBD7'
+				/>
 				<Hero />
-				<FeaturedProducts />
-				<Footer />
-			</main>
+			</div>
+			<FeaturedProducts />
+			<Footer />
 		</>
 	);
 }

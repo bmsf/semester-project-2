@@ -21,7 +21,7 @@ function Hero() {
 		},
 	];
 	return (
-		<div className='bg-white flex flex-col h-screen items-center justify-center -z-10 relative'>
+		<section className='bg-primary flex flex-col flex-1 items-center justify-center -z-10 relative'>
 			{images.map((image, index) => (
 				<div className='flex' key={index}>
 					<div className={`absolute ${image.styling}`}>
@@ -34,7 +34,7 @@ function Hero() {
 				<br />
 				BidCircle
 			</h1>
-		</div>
+		</section>
 	);
 }
 

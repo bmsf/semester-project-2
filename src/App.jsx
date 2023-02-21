@@ -21,18 +21,16 @@ function App() {
 
 	return (
 		<Router>
-			<div className='flex flex-col h-screen'>
-				<Routes>
-					<Route
-						exact
-						path='/'
-						element={<Home handleLogout={handleLogout} profile={profile} />}
-					/>
-					<Route exact path='/login' element={<Login />} />
-					<Route exact path='/register' element={<Register />} />
-					<Route exact path='/profile' element={<Profile />} />
-				</Routes>
-			</div>
+			<Routes>
+				<Route
+					exact
+					path='/'
+					element={<Home handleLogout={handleLogout} profile={profile} />}
+				/>
+				<Route exact path='/login' element={<Login />} />
+				<Route exact path='/register' element={<Register />} />
+				<Route exact path='/profile' element={<Profile />} />
+			</Routes>
 		</Router>
 	);
 }
