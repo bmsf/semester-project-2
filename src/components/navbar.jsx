@@ -49,11 +49,13 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 					</li>
 				</ul>
 				{profile ? (
-					<div className='hidden lg:flex lg:gap-5 lg:items-center'>
-						<div className='flex gap-2 bg-gray py-1.5 px-3 rounded-full text-white'>
-							<p className='text-black'>{credits}</p>
-							<CircleStackIcon className='h-6 w-6 text-black' />
+					<div className='hidden lg:flex lg:gap-2 lg:items-center'>
+						<p>Credit</p>
+						<div className='flex gap-1 border-2 border-black py-1 px-3 mr-3 rounded-full '>
+							<p className='text-#E1B530'>{credits}</p>
+							<CircleStackIcon className='h-6 w-6' />
 						</div>
+
 						<Link to='/profile'>
 							<UserIcon className='h-6 w-6 cursor-pointer' />
 						</Link>
@@ -75,15 +77,21 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 
 				<div className='absolute z-50 right-6 lg:left-6 lg:hidden'>
 					{!openMenu ? (
-						<Bars3Icon
-							className='h-8 w-8 cursor-pointer'
+						<div
+							className='flex gap-2 cursor-pointer'
 							onClick={() => setOpenMenu(!openMenu)}
-						/>
+						>
+							<Bars3Icon className='h-6 w-6' />
+							<p>Menu</p>
+						</div>
 					) : (
-						<XMarkIcon
-							className='h-8 w-8 cursor-pointer'
+						<div
+							className='flex flex-col items-center cursor-pointer'
 							onClick={() => setOpenMenu(!openMenu)}
-						/>
+						>
+							<XMarkIcon className='h-6 w-6' />
+							<p>Close</p>
+						</div>
 					)}
 				</div>
 			</nav>

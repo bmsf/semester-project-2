@@ -13,7 +13,7 @@ module.exports = {
 			success: '#BFD6C5',
 			decline: '#D6B4B4',
 			gray: '#A5A5A6',
-			yellow: '#DBC697',
+			yellow: '#E1B530',
 		},
 	},
 	plugins: [],

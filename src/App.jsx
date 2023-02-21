@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
 import './index.css';
-import { Home, Login, Register } from './pages/index';
+import { Home, Login, Register, Profile } from './pages/index';
 
 import Navbar from './components/Navbar';
 import * as storage from './storage/index.mjs';
@@ -30,7 +30,7 @@ function App() {
 					/>
 					<Route exact path='/login' element={<Login />} />
 					<Route exact path='/register' element={<Register />} />
-					<Route exact path='/profile' element={<Register />} />
+					<Route exact path='/profile' element={<Profile />} />
 				</Routes>
 			</div>
 		</Router>
