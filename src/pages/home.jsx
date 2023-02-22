@@ -1,9 +1,9 @@
-import FeaturedProducts from '../components/FeaturedProducts';
-import Footer from '../components/Footer';
-import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import LastChanceSection from '../components/FeaturedProducts';
+import Footer from '../components/Footer';
 
-function Home({ handleLogout, profile }) {
+function Home({ handleLogout, profile, listings }) {
 	return (
 		<>
 			<div className='flex flex-col h-screen'>
@@ -14,7 +14,7 @@ function Home({ handleLogout, profile }) {
 				/>
 				<Hero />
 			</div>
-			<FeaturedProducts />
+			<LastChanceSection listings={listings} />
 			<Footer />
 		</>
 	);

@@ -1,12 +1,23 @@
-import Products from './ProductsGrid';
+import ProductCard from './ProductCard';
 
-function FeaturedProducts() {
+function LastChanceSection({ listings }) {
+	console.log(listings);
+
 	return (
-		<section className='py-20 mx-auto'>
-			<h2 className='px-5 text-xl'>Last chance</h2>
-			<Products />
+		<section className='py-32 mx-auto'>
+			<h2 className='px-5 text-xl lg:pl-44'>Last chance</h2>
+			<div className='grid w-5/6 mx-auto'>
+				{listings.map((listing) => (
+					<div
+						className='flex flex-col justify-center text-sm container'
+						key={listings.id}
+					>
+						<ProductCard listing={listing} />
+					</div>
+				))}
+			</div>
 		</section>
 	);
 }
 
-export default FeaturedProducts;
+export default LastChanceSection;

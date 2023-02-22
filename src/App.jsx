@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
 import './index.css';
+import { API_AUCTION_URL } from './api/Constants';
 import { Home, Login, Register, Profile } from './pages/index';
-
-import Navbar from './components/Navbar';
 import * as storage from './storage/index.mjs';
 
 function App() {
@@ -19,13 +18,38 @@ function App() {
 		window.location.replace('/login');
 	};
 
+	const [listings, setListings] = useState();
+
+	const action = '/listings';
+
+	const fetchProducts = async () => {
+		try {
+			const getListingsURL = `${API_AUCTION_URL}${action}`;
+
+			const response = await fetch(getListingsURL);
+			const data = await response.json();
+
+			setListings(data);
+		} catch (err) {}
+	};
+
+	useEffect(() => {
+		fetchProducts();
+	}, []);
+
 	return (
 		<Router>
 			<Routes>
 				<Route
 					exact
 					path='/'
-					element={<Home handleLogout={handleLogout} profile={profile} />}
+					element={
+						<Home
+							handleLogout={handleLogout}
+							profile={profile}
+							listings={listings}
+						/>
+					}
 				/>
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/register' element={<Register />} />
