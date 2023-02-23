@@ -1,5 +1,5 @@
 function ProductCard({ listing }) {
-	const { id, title, description, media, tags, endsAt, bids } = listing;
+	const { id, title, description, media, tags, endsAt } = listing;
 
 	const date = new Date(endsAt).getTime();
 
@@ -13,7 +13,8 @@ function ProductCard({ listing }) {
 	);
 	const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
 
-	
+	const bids = listing._count.bids;
+
 	return (
 		<>
 			<div className='flex flex-col justify-center items-center text-sm container'>
@@ -29,7 +30,7 @@ function ProductCard({ listing }) {
 						<span className='pl-1'>{hours}h</span>
 						<span className='pl-1'>{minutes}m</span>
 					</p>
-					<p className='py-1'>{bids}</p>
+					<p className='py-1'>Current bids: {bids}</p>
 				</div>
 			</div>
 		</>
