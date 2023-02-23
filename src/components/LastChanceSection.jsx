@@ -5,19 +5,21 @@ function LastChanceSection({ listings }) {
 		<section className='py-32 mx-auto'>
 			<h2 className='px-5 text-xl lg:pl-44'>Last chance</h2>
 			<div className='grid mx-auto'>
-				{listings.map((listing) => {
-					const date = new Date(listing.endsAt).getTime();
+				{listings
+					.map((listing) => {
+						const date = new Date(listing.endsAt).getTime();
 
-					const now = new Date().getTime();
+						const now = new Date().getTime();
 
-					const timeleft = date - now;
+						const timeleft = date - now;
 
-					const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+						const remainingDays = Math.floor(timeleft / (1000 * 60 * 60 * 24));
 
-					return days < 1 ? (
-						<ProductCard listing={listing} key={listing.id} />
-					) : null;
-				})}
+						return remainingDays < 1 ? (
+							<ProductCard listing={listing} key={listing.id} />
+						) : null;
+					})
+					.slice(2)}
 			</div>
 		</section>
 	);

@@ -5,11 +5,13 @@ function Trending({ listings }) {
 		<section className='py-32 mx-auto'>
 			<h2 className='px-5 text-xl lg:pl-44'>Trending</h2>
 			<div className='grid mx-auto'>
-				{listings.map((listing) => {
-					return listing._count.bids > 10 ? (
-						<ProductCard listing={listing} key={listing.id} />
-					) : null;
-				})}
+				{listings
+					.map((listing) => {
+						return listing._count.bids > 10 ? (
+							<ProductCard listing={listing} key={listing.id} />
+						) : null;
+					})
+					.slice(4)}
 			</div>
 		</section>
 	);
