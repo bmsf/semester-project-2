@@ -18,13 +18,15 @@ function App() {
 		window.location.replace('/login');
 	};
 
-	const [listings, setListings] = useState();
+	//API call to fetch all products and store them in state to pass as props
+
+	const [listings, setListings] = useState([]);
 
 	const action = '/listings';
 
 	const fetchProducts = async () => {
 		try {
-			const getListingsURL = `${API_AUCTION_URL}${action}`;
+			const getListingsURL = `${API_AUCTION_URL}${action}?_active=true`;
 
 			const response = await fetch(getListingsURL);
 			const data = await response.json();

@@ -16,19 +16,23 @@ body {
 	grid-row-gap: 2rem;
 	justify-items: center;
 	padding-top: 50px;
-	/* width: 100%; */
+	width: 80%;
 }
 
 .container {
-	width: 80%;
-	height: 40vh;
+	width: 100%;
 	object-fit: contain;
 	margin-bottom: 1rem;
 }
 
 .innerContainer {
 	height: 338px;
+	width: 294px;
 	display: flex;
 	padding: 50px;
 	object-fit: cover;
+}
+
+.textContainer {
+	width: 294px;
 }
