@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import LastChanceSection from '../components/LastChanceSection';
+import TrendingSection from '../components/Trending';
 import Footer from '../components/Footer';
 
 function Home({ handleLogout, profile, listings }) {
@@ -15,6 +16,7 @@ function Home({ handleLogout, profile, listings }) {
 				<Hero />
 			</div>
 			<LastChanceSection listings={listings} />
+			<TrendingSection listings={listings} />
 			<Footer />
 		</>
 	);
