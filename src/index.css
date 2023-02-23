@@ -6,10 +6,6 @@ html {
 	overflow-x: hidden;
 }
 
-body {
-	position: relative;
-}
-
 .grid {
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-column-gap: 5rem;

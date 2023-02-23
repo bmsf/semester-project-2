@@ -13,7 +13,7 @@ function Button({
 				color: textColor,
 			}}
 			type={type}
-			onClick={handleClick}
+			onClick={() => handleClick()}
 		>
 			{children}
 		</button>

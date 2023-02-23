@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 function Home({ handleLogout, profile, listings }) {
 	return (
 		<>
-			<div className='flex flex-col h-screen'>
+			<div className='flex flex-col md:h-screen'>
 				<Navbar
 					handleLogout={handleLogout}
 					profile={profile}

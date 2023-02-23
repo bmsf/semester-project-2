@@ -25,10 +25,10 @@ const LoginAuth = async (formData) => {
 		if (response.ok) {
 			window.location.replace('/');
 		} else if (!response.ok) {
-			alert('Something went wrong, try again');
+			alert('You have entered an invalid username or password');
 		}
 	} catch (error) {
-		alert('Something went wrong, try again');
+		alert(error);
 	}
 };
 

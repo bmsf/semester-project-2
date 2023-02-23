@@ -16,11 +16,9 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 
 	const { name, email, credits, avatar } = profile || {};
 
-	if (openMenu) {
-		document.body.style.overflow = 'hidden';
-	} else {
-		document.body.style.overflow = 'unset';
-	}
+	openMenu
+		? (document.body.style.overflow = 'hidden')
+		: (document.body.style.overflow = 'unset');
 
 	return (
 		<>
@@ -103,51 +101,53 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 							animate={{ x: '0%' }}
 							transition={{ duration: 0.75 }}
 							exit={{ x: '150%' }}
-							className='bg-primary w-full h-screen absolute right-0 top-0 flex flex-col align-middle items-center text-center text-3xl z-40 gap-20'
+							className='overflow-y-hidden backdrop-blur-sm overflow-x-hidden fixed w-full h-screen right-0 top-0  z-40'
 						>
-							<ul className='flex flex-col gap-10 mt-44'>
-								<li>
-									<Link to='./' reloadDocument>
-										Home
-									</Link>
-								</li>
-								<li>
-									<Link to='./' reloadDocument>
-										Discover
-									</Link>
-								</li>
-								<li>
-									<Link to='./' reloadDocument>
-										Market
-									</Link>
-								</li>
-							</ul>
-							{profile ? (
-								<Button
-									children='Logout'
-									backgroundColor='black'
-									textColor='white'
-									reloadDocument
-									handleClick={() => handleLogout}
-								/>
-							) : (
-								<div className='flex flex-col gap-5'>
-									<Link to='/login' reloadDocument>
-										<Button
-											children='Login'
-											backgroundColor='black'
-											textColor='white'
-										/>
-									</Link>
-									<Link to='/register' reloadDocument>
-										<Button
-											children='Sign Up'
-											backgroundColor='transparent'
-											textColor='black'
-										/>
-									</Link>
-								</div>
-							)}
+							<div className='bg-primary w-full h-full flex flex-col align-middle items-center text-center text-3xl gap-20'>
+								<ul className='flex flex-col gap-10 mt-44'>
+									<li>
+										<Link to='./' reloadDocument>
+											Home
+										</Link>
+									</li>
+									<li>
+										<Link to='./' reloadDocument>
+											Discover
+										</Link>
+									</li>
+									<li>
+										<Link to='./' reloadDocument>
+											Market
+										</Link>
+									</li>
+								</ul>
+								{profile ? (
+									<Button
+										children='Logout'
+										backgroundColor='black'
+										textColor='white'
+										reloadDocument
+										handleClick={handleLogout}
+									/>
+								) : (
+									<div className='flex flex-col gap-5'>
+										<Link to='/login' reloadDocument>
+											<Button
+												children='Login'
+												backgroundColor='black'
+												textColor='white'
+											/>
+										</Link>
+										<Link to='/register' reloadDocument>
+											<Button
+												children='Sign Up'
+												backgroundColor='transparent'
+												textColor='black'
+											/>
+										</Link>
+									</div>
+								)}
+							</div>
 						</m.div>
 					</>
 				)}

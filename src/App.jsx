@@ -13,9 +13,9 @@ function App() {
 	const [profile, setProfile] = useState(storage.load('profile'));
 
 	const handleLogout = () => {
-		localStorage.removeItem('token');
-		localStorage.removeItem('profile');
-		window.location.replace('/login');
+		storage.remove('profile');
+		storage.remove('token');
+		window.location.reload(true);
 	};
 
 	//API call to fetch all products and store them in state to pass as props
