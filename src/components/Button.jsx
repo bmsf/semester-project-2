@@ -4,6 +4,7 @@ function Button({
 	textColor,
 	type = 'button',
 	handleClick,
+	width,
 }) {
 	return (
 		<button
@@ -11,6 +12,7 @@ function Button({
 			style={{
 				backgroundColor: backgroundColor,
 				color: textColor,
+				width: width,
 			}}
 			type={type}
 			onClick={() => handleClick()}

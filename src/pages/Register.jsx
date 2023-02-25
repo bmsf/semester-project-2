@@ -85,9 +85,7 @@ function Register() {
 						</div>
 					</div>
 					<div className='flex flex-col'>
-						<label className='mb-2 text-sm font-medium'>
-							Avatar(optional)
-						</label>
+						<label className='mb-2 text-sm font-medium'>Avatar(optional)</label>
 						<div className='relative '>
 							<PhotoIcon className='absolute h-4 w-4 cursor-pointer top-4 left-3' />
 							<input
@@ -95,7 +93,7 @@ function Register() {
 								className='pl-10  w-full border border-black rounded-lg p-2.5 '
 								value={avatar}
 								onChange={onChange}
-								placeholder='https://unsplash.com/photos/3qvhDhV-ugQ'
+								placeholder='"https://url.com/image.jpg"'
 								pattern='^[\w]+$'
 								title='Name can maximum contain 20 letters and no numbers'
 							/>

@@ -3,14 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
 import './index.css';
-import { API_AUCTION_URL } from './api/Constants';
-import { Home, Login, Register, Profile } from './pages/index';
+import { Home, Login, Register, Profile, Create } from './pages/index';
+import FetchProducts from './api/FetchProducts';
+import CreateListing from './api/CreateListing';
 import * as storage from './storage/index.mjs';
 
 function App() {
 	const [token, setToken] = useState(storage.load('token'));
 
 	const [profile, setProfile] = useState(storage.load('profile'));
+
+	// Function for logged out and refreshing page when user clicks button
 
 	const handleLogout = () => {
 		storage.remove('profile');
@@ -22,21 +25,8 @@ function App() {
 
 	const [listings, setListings] = useState([]);
 
-	const action = '/listings';
-
-	const fetchProducts = async () => {
-		try {
-			const getListingsURL = `${API_AUCTION_URL}${action}?_active=true`;
-
-			const response = await fetch(getListingsURL);
-			const data = await response.json();
-
-			setListings(data);
-		} catch (err) {}
-	};
-
 	useEffect(() => {
-		fetchProducts();
+		FetchProducts(setListings);
 	}, []);
 
 	return (
@@ -56,6 +46,7 @@ function App() {
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/register' element={<Register />} />
 				<Route exact path='/profile' element={<Profile />} />
+				<Route exact path='/create' element={<Create />} />
 			</Routes>
 		</Router>
 	);
