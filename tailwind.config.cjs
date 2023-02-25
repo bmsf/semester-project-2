@@ -9,7 +9,7 @@ module.exports = {
 		colors: {
 			primary: '#CACBD7',
 			teal: '#CAD9E3',
-			gray: '#F0F0F0',
+			gray: '#DDE4EB',
 			black: '#000000',
 			white: '#FFFFFF',
 			success: '#BFD6C5',

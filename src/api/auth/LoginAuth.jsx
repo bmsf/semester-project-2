@@ -28,7 +28,7 @@ const LoginAuth = async (formData) => {
 			alert('You have entered an invalid username or password');
 		}
 	} catch (error) {
-		alert(error);
+		alert('You have entered an invalid username or password');
 	}
 };
 

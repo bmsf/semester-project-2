@@ -40,7 +40,7 @@ function Login() {
 				<h1 className='text-xl'>Login</h1>
 				<form
 					onSubmit={onSubmit}
-					className='flex flex-col w-2/3 md:w-1/3 lg:w-1/4 space-y-4 md:space-y-6'
+					className='flex flex-col w-2/3 md:w-1/3 lg:w-1/5 space-y-4 md:space-y-6'
 				>
 					<div className='flex flex-col'>
 						<label className='mb-2 text-sm font-medium'>Email</label>
@@ -48,10 +48,11 @@ function Login() {
 							<UserIcon className='absolute h-4 w-4 cursor-pointer top-4 left-3' />
 							<input
 								id='email'
-								className='pl-8 w-full border border-black rounded-lg p-2.5 text-black'
+								className='pl-10 w-full border border-black rounded-lg p-2.5 text-black'
 								value={email}
 								onChange={onChange}
 								required
+								placeholder='jondoe@stud.noroff.no'
 								pattern='^[\w\-.]+@(stud.)?noroff.no$'
 								title='Email must be associated with a noroff email. @noroff.no or @stud.noroff.no'
 							/>
@@ -66,10 +67,11 @@ function Login() {
 							<input
 								id='password'
 								type={showPassword ? 'text' : 'password'}
-								className='pl-8 w-full border border-black rounded-lg p-2.5 text-black'
+								className='pl-10  w-full border border-black rounded-lg p-2.5 text-black'
 								value={password}
 								onChange={onChange}
 								required
+								placeholder='********'
 								minLength='8'
 								title='Password has a minimum length of 8 characters'
 							/>

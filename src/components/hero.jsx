@@ -8,7 +8,7 @@ function Hero() {
 			</div>
 			<div className='w-2/3 md:w-3/4 lg:w-2/3'>
 				<span>Auction</span>
-				<h1 className='font-title text-black text-6xl md:text-8xl lg:text-9xl font-light'>
+				<h1 className='font-title text-black text-6xl md:text-8xl font-light'>
 					BidCircle
 				</h1>
 				<p className='text-lg font-thin leading-relaxed pt-6 lg:w-5/6'>

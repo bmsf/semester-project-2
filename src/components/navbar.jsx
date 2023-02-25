@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
-	UserIcon,
+	UserCircleIcon,
 	Bars3Icon,
 	XMarkIcon,
 	CircleStackIcon,
+	UserIcon,
+	ArrowLeftOnRectangleIcon,
+	PlusCircleIcon,
 } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -13,8 +16,11 @@ import logo from '../assets/logo-no-background.png';
 
 function Navbar({ backgroundColor, handleLogout, profile }) {
 	const [openMenu, setOpenMenu] = useState(false);
+	const [openLoggedInMenu, setOpenLoggedInMenu] = useState(false);
 
 	const { name, email, credits, avatar } = profile || {};
+
+	console.log(openLoggedInMenu);
 
 	openMenu
 		? (document.body.style.overflow = 'hidden')
@@ -48,15 +54,93 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 				</ul>
 				{profile ? (
 					<div className='hidden lg:flex lg:gap-2 lg:items-center'>
+						<div className='relative'>
+							{!avatar ? (
+								<UserCircleIcon
+									className='h-8 w-8 cursor-pointer'
+									onClick={() => setOpenLoggedInMenu(!openLoggedInMenu)}
+								/>
+							) : (
+								<img
+									src={avatar}
+									alt='User avatar'
+									className='h-8 w-8 rounded-full'
+									onClick={() => setOpenLoggedInMenu(!openLoggedInMenu)}
+								/>
+							)}
+							<AnimatePresence>
+								{openLoggedInMenu && (
+									<>
+										<m.div
+											initial={{ opacity: 0, y: '70px', x: '70%' }}
+											animate={{ opacity: 1 }}
+											exit={{ opacity: 0 }}
+											transition={{ duration: 0.2, opacity: 1 }}
+											className='absolute right-16 -top-5'
+										>
+											<div className='bg-white rounded-md py-10 items-center'>
+												<div className='left-[49%] absolute top-[-12px] transform -translate-x-1/2 translate-y-1/2 rotate-45 w-4 h-4 bg-white -z-10'></div>
+												<div className='flex flex-col'>
+													<div className='flex flex-col items-center gap-2 px-10 border-b pb-8 '>
+														<div>
+															{!avatar ? (
+																<UserCircleIcon
+																	className='h-10 w-10 cursor-pointer'
+																	onClick={() =>
+																		setOpenLoggedInMenu(!openLoggedInMenu)
+																	}
+																/>
+															) : (
+																<img
+																	src={avatar}
+																	alt='User avatar'
+																	className='h-8 w-8 rounded-full'
+																	onClick={() =>
+																		setOpenLoggedInMenu(!openLoggedInMenu)
+																	}
+																/>
+															)}
+														</div>
+														<p className='capitalize'>{name}</p>
+														<p className='pb-3 font-thin text-sm'>{email}</p>
+														<Button children='Manage your profile' />
+													</div>
+													<ul className='flex flex-col  gap-2 px-8 w-full pt-4'>
+														<li className='flex h-12 py-6'>
+															<UserIcon className='h-6 w-6 text-gray' />
+															<Link to='/' className='pl-8'>
+																Profile
+															</Link>
+														</li>
+														<li className='flex h-12 py-6'>
+															<PlusCircleIcon className='h-6 w-6 text-success' />
+															<Link to='/' className='pl-8'>
+																Create listing
+															</Link>
+														</li>
+														<li className='flex h-12 py-6'>
+															<ArrowLeftOnRectangleIcon className='h-6 w-6 text-decline' />
+															<Link
+																to='/'
+																className='pl-8'
+																onClick={handleLogout}
+															>
+																Logout
+															</Link>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</m.div>
+									</>
+								)}
+							</AnimatePresence>
+						</div>
 						<p>Credit</p>
 						<div className='flex gap-1 border-2 border-black py-1 px-3 mr-3 rounded-full '>
 							<p className='text-#E1B530'>{credits}</p>
 							<CircleStackIcon className='h-6 w-6' />
 						</div>
-
-						<Link to='/profile'>
-							<UserIcon className='h-6 w-6 cursor-pointer' />
-						</Link>
 					</div>
 				) : (
 					<div className='hidden lg:block'>
@@ -93,6 +177,7 @@ function Navbar({ backgroundColor, handleLogout, profile }) {
 					)}
 				</div>
 			</nav>
+
 			<AnimatePresence>
 				{openMenu && (
 					<>
