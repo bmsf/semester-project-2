@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { EyeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline';
 
-import Button from '../components/Button';
-import LoginAuth from '../api/auth/LoginAuth';
+import CreateListing from '../api/CreateListing';
 import logo from '../assets/logo-no-background.png';
 
 function Create() {
 	const [formData, setFormData] = useState({
 		title: '',
 		description: '',
-		tags: [],
-		media: [],
+		tags: '',
+		media: '',
+		endsAt: '',
 	});
 
-	const { title, description, tags, media } = formData;
+	const { title, description, tags, media, endsAt } = formData;
 
 	const onChange = (e) => {
 		setFormData((prevState) => ({
@@ -23,9 +22,17 @@ function Create() {
 		}));
 	};
 
+	const returnArray = (e) => {
+		setFormData({
+			...formData,
+			[e.target.id]: e.target.value.split(' '),
+		});
+	};
+
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		console.log(formData);
+
+		CreateListing(formData);
 	};
 
 	return (
@@ -37,7 +44,7 @@ function Create() {
 					</Link>
 				</div>
 			</nav>
-			<main className='flex flex-col justify-center items-center h-screen w-full gap-5'>
+			<main className='flex flex-col items-center h-screen w-full gap-5 mt-20'>
 				<h1 className='text-xl'>Create an Auction Listing</h1>
 				<form
 					onSubmit={onSubmit}
@@ -80,11 +87,10 @@ function Create() {
 								id='tags'
 								className='w-full border border-black rounded-lg p-2.5 text-black'
 								value={tags}
-								onChange={onChange}
-								required
+								onChange={returnArray}
 								placeholder='Electronics, Apple, Mac'
 								pattern='^[a-zA-Z0-9]+(?:[,]+[a-zA-Z0-9]+){0,5}$'
-								title='The tags need to be separated with a comma'
+								title='The tags need to be separated with a comma and without spaces'
 							/>
 						</div>
 					</div>
@@ -94,42 +100,39 @@ function Create() {
 						</label>
 						<div className='relative '>
 							<input
-								id='tags'
+								id='media'
 								className='w-full border border-black rounded-lg p-2.5 text-black'
 								value={media}
-								onChange={onChange}
-								required
+								onChange={returnArray}
 								placeholder='"https://url.com/image.jpg"'
-								pattern='^[a-zA-Z0-9]+(?:[,]+[a-zA-Z0-9]+){0,5}$'
-								title='The tags need to be separated with a comma'
+								title='The links need to be separated with a comma and without spaces'
 							/>
 						</div>
 					</div>
-					<div className='flex flex-col pb-2 w-1/3'>
+					<div className='flex flex-col pb-2 w-2/4 lg:w-1/3'>
 						<label className='mb-2 text-sm font-medium'>
 							Auction End Date*
 						</label>
 						<div className='relative '>
 							<input
 								type='date'
-								id='tags'
+								id='endsAt'
 								className='w-full border border-black rounded-lg p-2.5 text-black'
-								value={media}
+								value={endsAt}
 								onChange={onChange}
 								required
 								placeholder='"https://url.com/image.jpg"'
-								pattern='^[a-zA-Z0-9]+(?:[,]+[a-zA-Z0-9]+){0,5}$'
+								// pattern='^[a-zA-Z0-9]+(?:[,]+[a-zA-Z0-9]+){0,5}$'
 								title='The tags need to be separated with a comma'
 							/>
 						</div>
 					</div>
-					<Button
-						backgroundColor='black'
-						children='Create Auction'
-						textColor='white'
-						type='Submit'
-						width='100%'
-					/>
+					<button
+						className='rounded-md font-thin py-2 text-white bg-transparent text-lg border border-black bg-black w-full'
+						type='submit'
+					>
+						Create Auction
+					</button>
 				</form>
 			</main>
 		</>
