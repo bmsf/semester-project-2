@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import CreateListing from '../api/CreateListing';
-import logo from '../assets/logo-no-background.png';
+import Navbar from '../components/Navbar';
 
-function Create() {
+function Create({ handleLogout, profile }) {
 	const [formData, setFormData] = useState({
 		title: '',
 		description: '',
@@ -37,13 +37,7 @@ function Create() {
 
 	return (
 		<>
-			<nav>
-				<div className='w-16 m-5'>
-					<Link to='/'>
-						<img src={logo} alt='Image of logo' />
-					</Link>
-				</div>
-			</nav>
+			<Navbar handleLogout={handleLogout} profile={profile} />
 			<main className='flex flex-col items-center h-screen w-full gap-5 mt-20'>
 				<h1 className='text-xl'>Create an Auction Listing</h1>
 				<form

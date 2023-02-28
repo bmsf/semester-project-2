@@ -5,6 +5,7 @@ function Button({
 	type = 'button',
 	handleClick,
 	width,
+	borderColor,
 }) {
 	return (
 		<button
@@ -13,9 +14,10 @@ function Button({
 				backgroundColor: backgroundColor,
 				color: textColor,
 				width: width,
+				border: borderColor,
 			}}
 			type={type}
-			onClick={() => handleClick()}
+			onClick={handleClick}
 		>
 			{children}
 		</button>

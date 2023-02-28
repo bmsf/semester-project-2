@@ -5,13 +5,18 @@ import { AnimatePresence, motion as m } from 'framer-motion';
 import './index.css';
 import { Home, Login, Register, Profile, Create } from './pages/index';
 import FetchProducts from './api/FetchProducts';
-import CreateListing from './api/CreateListing';
 import * as storage from './storage/index.mjs';
 
 function App() {
 	const [token, setToken] = useState(storage.load('token'));
 
 	const [profile, setProfile] = useState(storage.load('profile'));
+
+	const updateProfile = (newProfile) => {
+		setProfile(newProfile)
+		storage.save('profile', newProfile)
+		storage.save('avatar', newProfile.avatar)
+	};
 
 	// Function for logged out and refreshing page when user clicks button
 
@@ -45,8 +50,23 @@ function App() {
 				/>
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/register' element={<Register />} />
-				<Route exact path='/profile' element={<Profile />} />
-				<Route exact path='/create' element={<Create />} />
+				<Route
+					exact
+					path='/profile'
+					element={
+						<Profile
+							handleLogout={handleLogout}
+							profile={profile}
+							token={token}
+							updateProfile={updateProfile}
+						/>
+					}
+				/>
+				<Route
+					exact
+					path='/create'
+					element={<Create handleLogout={handleLogout} profile={profile} />}
+				/>
 			</Routes>
 		</Router>
 	);
