@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 import logo from '../assets/logo-no-background.png';
 
+
 function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 	const [openMenu, setOpenMenu] = useState(false);
 	const [openLoggedInMenu, setOpenLoggedInMenu] = useState(false);
@@ -33,7 +34,6 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 			<nav
 				className='w-full p-5 flex justify-between items-center lg:p-10'
 				style={{ backgroundColor: backgroundColor }}
-				
 			>
 				<div className='w-16'>
 					<Link to='/'>
@@ -67,7 +67,7 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 								<img
 									src={avatar}
 									alt='User avatar'
-									className='h-8 w-8 rounded-full'
+									className='h-8 w-8 rounded-full cursor-pointer'
 									onClick={() => setOpenLoggedInMenu(!openLoggedInMenu)}
 								/>
 							)}
@@ -81,63 +81,69 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 											transition={{ duration: 0.2, opacity: 1 }}
 											onClick={handleBackdropClick}
 											id='backdrop'
-											className='overflow-y-auto backdrop-blur-sm overflow-x-hidden fixed top-0 right-0 left-0 w-full md:inset-0 z-44'
+											className='overflow-y-auto backdrop-blur-sm overflow-x-hidden fixed top-0 right-0 left-0 md:inset-0 z-44'
 										>
-											<div className='bg-black text-white rounded-md py-10 items-center w-1/4 relative top-24 -right-[72%]'>
-												<div className='left-[50%] absolute top-[-12px] transform -translate-x-1/2 translate-y-1/2 rotate-45 w-4 h-4 bg-black -z-10'></div>
-												<div className='flex flex-col items-center'>
-													<div className='flex flex-col items-center gap-2 px-10 border-b pb-8 '>
-														<div>
-															{!avatar ? (
-																<UserCircleIcon
-																	className='h-10 w-10 cursor-pointer'
-																	onClick={() =>
-																		setOpenLoggedInMenu(!openLoggedInMenu)
-																	}
-																/>
-															) : (
-																<img
-																	src={avatar}
-																	alt='User avatar'
-																	className='h-8 w-8 rounded-full'
-																	onClick={() =>
-																		setOpenLoggedInMenu(!openLoggedInMenu)
-																	}
-																/>
-															)}
-														</div>
-														<p className='capitalize'>{name}</p>
-														<p className='pb-3 font-thin text-sm'>{email}</p>
-														{/* <Button
+											<div className='relative'>
+												<div className='bg-black text-white rounded-md py-10 items-center w-1/4 relative top-24 -right-[1445px]'>
+													<div className='left-[50%] absolute top-[-12px] transform -translate-x-1/2 translate-y-1/2 rotate-45 w-4 h-4 bg-black -z-10'></div>
+													<div className='flex flex-col items-center'>
+														<div className='flex flex-col items-center gap-2 px-10 border-b pb-8 '>
+															<div>
+																{!avatar ? (
+																	<UserCircleIcon
+																		className='h-10 w-10 cursor-pointer'
+																		onClick={() =>
+																			setOpenLoggedInMenu(!openLoggedInMenu)
+																		}
+																	/>
+																) : (
+																	<img
+																		src={avatar}
+																		alt='User avatar'
+																		className='h-8 w-8 rounded-full'
+																		onClick={() =>
+																			setOpenLoggedInMenu(!openLoggedInMenu)
+																		}
+																	/>
+																)}
+															</div>
+															<p className='capitalize'>{name}</p>
+															<p className='pb-3 font-thin text-sm'>{email}</p>
+															{/* <Button
 															children='Manage your profile'
 															backgroundColor='black'
 															textColor='white'
 															borderColor='1px solid white'
 															// handleClick={}
 														/> */}
-													</div>
+														</div>
 
-													<ul
-														className='flex flex-col items-center gap-2 px-12 w-full pt-10
+														<ul
+															className='flex flex-col items-center gap-2 px-12 w-full pt-10
 											'
-													>
-														<li className='flex'>
-															<UserIcon className='h-6 w-6 absolute left-12' />
-															<Link to='/profile'>Profile</Link>
-														</li>
-														<li className='flex py-6 border-b border-black w-full justify-center '>
-															<PlusCircleIcon className='h-6 w-6  absolute left-12' />
-															<Link to='/create' className='m'>
-																Create listing
-															</Link>
-														</li>
-														<li className='flex py-2'>
-															<ArrowLeftOnRectangleIcon className='h-6 w-6  absolute left-12' />
-															<Link to='/' className='' onClick={handleLogout}>
-																Logout
-															</Link>
-														</li>
-													</ul>
+														>
+															<li className='flex'>
+																<UserIcon className='h-6 w-6 absolute left-12' />
+																<Link to='/profile'>Profile</Link>
+															</li>
+															<li className='flex py-6 border-b border-black w-full justify-center '>
+																<PlusCircleIcon className='h-6 w-6  absolute left-12' />
+																<Link to='/create' className='m'>
+																	Create listing
+																</Link>
+															</li>
+															<li className='flex py-2'>
+																<ArrowLeftOnRectangleIcon className='h-6 w-6  absolute left-12' />
+																<Link
+																	to='/'
+																	className=''
+																	onClick={handleLogout}
+																>
+																	Logout
+																</Link>
+															</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 										</m.div>
@@ -195,7 +201,7 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 							animate={{ x: '0%' }}
 							transition={{ duration: 0.75 }}
 							exit={{ x: '150%' }}
-							className='overflow-y-hidden backdrop-blur-sm overflow-x-hidden fixed w-full h-screen right-0 top-0'
+							className='fixed w-full h-screen right-0 top-0'
 						>
 							<div className='bg-primary w-full h-full flex flex-col align-middle items-center text-center text-3xl gap-20'>
 								<ul className='flex flex-col gap-10 mt-44'>

@@ -4,7 +4,8 @@ import { AnimatePresence, motion as m } from 'framer-motion';
 
 import Navbar from '../components/Navbar';
 import Button from '../components/Button';
-import { API_AUCTION_URL } from '../api/Constants';
+
+import UpdateAvatar from '../api/UpdateAvatar';
 
 function Profile({ handleLogout, profile, token, updateProfile }) {
 	const [openModal, setOpenModal] = useState(false);
@@ -30,37 +31,10 @@ function Profile({ handleLogout, profile, token, updateProfile }) {
 		}));
 	};
 
-	const action = `/profiles/${name}/media`;
-	const method = 'put';
-	const updateMediaURL = API_AUCTION_URL + action;
-
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		try {
-			const response = await fetch(updateMediaURL, {
-				method: method,
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `bearer ${token}`,
-				},
-				body: JSON.stringify(formData),
-			});
-			if (response.ok) {
-				const updatedProfile = {
-					...profile,
-					avatar: formData.avatar,
-				};
-				updateProfile(updatedProfile);
-
-				window.location.reload(true);
-			}
-			if (!response.ok) {
-				alert("The image didn't get updated, please try again");
-			}
-		} catch (error) {
-			alert("The image didn't get updated, please try again");
-		}
+		UpdateAvatar(name, formData, updateProfile, token, profile);
 	};
 
 	return (

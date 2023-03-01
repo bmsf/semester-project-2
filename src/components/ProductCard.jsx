@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function ProductCard({ listing }) {
 	const { id, title, description, media, tags, endsAt } = listing;
 
@@ -14,12 +16,11 @@ function ProductCard({ listing }) {
 	const remainingMinutes = Math.floor(
 		(timeleft % (1000 * 60 * 60)) / (1000 * 60)
 	);
-	// const remainingSeconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
 	const bids = listing._count.bids;
 
 	return (
-		<>
+		<Link to={`/products/${id}`}>
 			<div className='flex flex-col justify-center items-center text-sm font-thin container'>
 				<div className='bg-teal innerContainer text-sm'>
 					<img src={media} alt={title} className='mx-auto object-contain' />
@@ -39,7 +40,7 @@ function ProductCard({ listing }) {
 					</p>
 				</div>
 			</div>
-		</>
+		</Link>
 	);
 }
 

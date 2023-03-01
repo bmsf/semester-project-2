@@ -3,7 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
 import './index.css';
-import { Home, Login, Register, Profile, Create } from './pages/index';
+import {
+	Home,
+	Login,
+	Register,
+	Profile,
+	Create,
+	Product,
+	Products,
+} from './pages/index';
 import FetchProducts from './api/FetchProducts';
 import * as storage from './storage/index.mjs';
 
@@ -13,9 +21,9 @@ function App() {
 	const [profile, setProfile] = useState(storage.load('profile'));
 
 	const updateProfile = (newProfile) => {
-		setProfile(newProfile)
-		storage.save('profile', newProfile)
-		storage.save('avatar', newProfile.avatar)
+		setProfile(newProfile);
+		storage.save('profile', newProfile);
+		storage.save('avatar', newProfile.avatar);
 	};
 
 	// Function for logged out and refreshing page when user clicks button
@@ -48,6 +56,14 @@ function App() {
 						/>
 					}
 				/>
+				<Route path='/products'>
+					<Route index element={<Products />} />
+					<Route
+						path=':id'
+						element={<Product handleLogout={handleLogout} profile={profile} />}
+					/>
+				</Route>
+
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/register' element={<Register />} />
 				<Route

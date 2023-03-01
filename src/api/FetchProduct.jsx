@@ -1,18 +1,17 @@
 import { API_AUCTION_URL } from './Constants';
 const action = '/listings';
 
-const FetchProducts = async (setListings) => {
+const FetchProduct = async (id) => {
 	try {
-		const getListingsURL = `${API_AUCTION_URL}${action}?_active=true`;
+		const getListingsURL = `${API_AUCTION_URL}${action}/${id}?_seller=true&_bids=true`;
 
 		const response = await fetch(getListingsURL);
-		const data = await response.json();
 
-		setListings(data);
+		return await response.json();
 	} catch (err) {
 		console.error(err);
 		throw new Error('Failed to fetch product details');
 	}
 };
 
-export default FetchProducts;
+export default FetchProduct;
