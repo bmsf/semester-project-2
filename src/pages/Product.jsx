@@ -1,10 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import {
-	ChevronRightIcon,
-	ChevronLeftIcon,
-	XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { ChevronRightIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { motion as m, AnimatePresence } from 'framer-motion';
 
 import FetchProduct from '../api/FetchProduct';
@@ -13,6 +9,7 @@ import ImageCarousel from '../components/ImageCarousel';
 import Button from '../components/Button';
 import Navbar from '../components/Navbar';
 import placeholder from '../assets/placeholder-image.png';
+import InfoBox from '../components/InfoBox';
 
 function Product({ profile, handleLogout }) {
 	const { id } = useParams();
@@ -23,6 +20,8 @@ function Product({ profile, handleLogout }) {
 	const [formData, setFormData] = useState({
 		amount: '',
 	});
+
+	const [isOpen, setOpen] = useState(false);
 
 	const handleClick = () => {
 		setOpenModal(!openModal);
@@ -77,47 +76,52 @@ function Product({ profile, handleLogout }) {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		console.log(formData);
 		Bid(id, formData);
-
-		// UpdateAvatar(name, formData, updateProfile, token, profile);
 	};
+
+	console.log(product);
 
 	return (
 		<>
 			<Navbar handleLogout={handleLogout} profile={profile} />
-			<div className='flex flex-col items-center'>
-				{media.length > 0 ? (
-					<ImageCarousel
-						description={description}
-						endsAt={endsAt}
-						media={media}
-					/>
-				) : (
-					<div className='w-screen md:w-1/3 md:m-10 border-b border-t'>
-						<img src={placeholder} alt='image is missing' />
-					</div>
-				)}
-
-				<div className='flex flex-col  border rounded-md m-10 border-gray'>
-					<div className='border-b border-gray w-full flex flex-between'>
-						<h1 className='p-4 text-xl font-bold'>{title}</h1>
-					</div>
-					<div className='flex justify-between items-center p-4 border-b border-gray'>
-						<div className='flex flex-col'>
-							<p>Details</p>
+			<div className='flex flex-col gap-12 mt-10 mb-32 lg:flex-row lg:justify-between xl:justify-around lg:mx-20'>
+				<div className='mb-20'>
+					{media.length > 0 ? (
+						<ImageCarousel media={media} />
+					) : (
+						<div className='w-screen md:w-1/3 md:m-10 border-b border-t'>
+							<img src={placeholder} alt='image is missing' />
 						</div>
-						<ChevronRightIcon className='h-4 w-4' />
+					)}
+				</div>
+				<div className='flex flex-col  border rounded-md m-10 lg:m-0 mx-auto border-gray w-3/4 lg:w-3/5 xl:w-2/5'>
+					<div className='border-b border-gray w-full flex flex-between p-8'>
+						<h1 className='text-xl font-bold'>{title}</h1>
 					</div>
-					<div className='flex justify-between items-center p-4'>
+					<InfoBox title='Details' children={description} />
+					<InfoBox title='Seller' children={seller.name} />
+					<InfoBox title='Time left' children={endsAt} />
+					<div className='hidden lg:flex justify-between items-center px-6 h-full'>
 						<div className='flex flex-col'>
-							<p>Seller</p>
-							{/* <p>{seller.name}</p> */}
+							<p>
+								Current highest bid:{' '}
+								<span className='font-bold'>
+									{highestBid.amount ?? 'No bids'}
+								</span>
+							</p>
+							<p className='text-sm'>
+								By: {highestBid.bidderName ?? 'No bids'}
+							</p>
 						</div>
-						<ChevronRightIcon className='h-4 w-4' />
+						<Button
+							children='Make bid'
+							textColor='White'
+							backgroundColor='black'
+							handleClick={handleClick}
+						/>
 					</div>
 				</div>
-				<div className='bg-white w-full h-20 px-6 py-2 flex justify-between items-center text-gray-font fixed bottom-0 shadow-lg z-40 border-t border-gray-99'>
+				<div className='bg-white w-full h-20 px-6 py-2 flex justify-between items-center lg:hidden text-gray-font fixed bottom-0 shadow-lg z-40 border-t border-gray-99'>
 					<div className='flex flex-col '>
 						<p>
 							Current highest bid:{' '}
