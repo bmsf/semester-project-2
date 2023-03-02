@@ -7,13 +7,17 @@ import {
 	UserIcon,
 	ArrowLeftOnRectangleIcon,
 	PlusCircleIcon,
+	HomeIcon,
+	BuildingLibraryIcon,
+	ChevronRightIcon,
+	PlusIcon,
+	NewspaperIcon,
 } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Button from './Button';
 import logo from '../assets/logo-no-background.png';
-
 
 function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 	const [openMenu, setOpenMenu] = useState(false);
@@ -172,14 +176,13 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 					</div>
 				)}
 
-				<div className='absolute z-40 right-6 lg:left-6 lg:hidden'>
+				<div className='absolute z-50 right-6 lg:left-6 lg:hidden'>
 					{!openMenu ? (
 						<div
 							className='flex gap-2 cursor-pointer'
 							onClick={() => setOpenMenu(!openMenu)}
 						>
 							<Bars3Icon className='h-6 w-6' />
-							<p>Menu</p>
 						</div>
 					) : (
 						<div
@@ -187,7 +190,6 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 							onClick={() => setOpenMenu(!openMenu)}
 						>
 							<XMarkIcon className='h-6 w-6' />
-							<p>Close</p>
 						</div>
 					)}
 				</div>
@@ -201,52 +203,113 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 							animate={{ x: '0%' }}
 							transition={{ duration: 0.75 }}
 							exit={{ x: '150%' }}
-							className='fixed w-full h-screen right-0 top-0'
+							className='fixed w-full h-screen right-0 top-0 z-40'
 						>
-							<div className='bg-primary w-full h-full flex flex-col align-middle items-center text-center text-3xl gap-20'>
-								<ul className='flex flex-col gap-10 mt-44'>
-									<li>
-										<Link to='./' reloadDocument>
-											Home
-										</Link>
+							<div className='bg-primary w-full h-full flex flex-col gap-10 text-lg'>
+								<div className='flex flex-col items-center mt-24'>
+									{profile ? (
+										<>
+											<div>
+												{!avatar ? (
+													<UserCircleIcon className='h-16 w-16' />
+												) : (
+													<img
+														src={avatar}
+														alt='User avatar'
+														className='h-16 w-16 rounded-full'
+													/>
+												)}
+											</div>
+											<div className='text-center md:text-left'>
+												<p className='capitalize text-3xl'>{name}</p>
+												<p className='pb-3 font-thin text-md'>{email}</p>
+											</div>
+										</>
+									) : (
+										<UserCircleIcon className='h-20 w-20' />
+									)}
+								</div>
+
+								<ul className='flex flex-col gap-10 m-6 pb-10'>
+									<li className='flex items-center justify-between cursor-pointer'>
+										<div className='flex gap-6'>
+											<HomeIcon className='h-6 w-6' />
+											<Link to='/' reloadDocument>
+												Home
+											</Link>
+										</div>
+										<ChevronRightIcon className='h-6 w-6' />
 									</li>
-									<li>
-										<Link to='./' reloadDocument>
-											Discover
-										</Link>
+
+									<li className='flex items-center border-b pb-10 justify-between cursor-pointer'>
+										<div className='flex gap-6 '>
+											<BuildingLibraryIcon className='h-6 w-6' />
+											<Link to='/products' reloadDocument>
+												Market
+											</Link>
+										</div>
+										<ChevronRightIcon className='h-6 w-6' />
 									</li>
-									<li>
-										<Link to='./' reloadDocument>
-											Market
-										</Link>
-									</li>
+
+									{profile ? (
+										<>
+											<li className='flex  items-center justify-between cursor-pointer'>
+												<div className='flex gap-6'>
+													<UserIcon className='h-6 w-6' />
+													<Link to='/profile' reloadDocument>
+														Profile
+													</Link>
+												</div>
+												<ChevronRightIcon className='h-6 w-6' />
+											</li>
+											<li className='flex  items-center justify-between cursor-pointer'>
+												<div className='flex gap-6'>
+													<PlusCircleIcon className='h-6 w-6' />
+													<Link to='/create' reloadDocument>
+														Create Listing
+													</Link>
+												</div>
+												<ChevronRightIcon className='h-6 w-6' />
+											</li>
+
+											<li className='flex  items-center justify-between border-b pb-10 cursor-pointer'>
+												<div className='flex gap-6'>
+													<NewspaperIcon className='h-6 w-6' />
+													<Link to='/mylistings' reloadDocument>
+														My listings
+													</Link>
+												</div>
+												<ChevronRightIcon className='h-6 w-6' />
+											</li>
+											<li className='flex  items-center justify-between cursor-pointer'>
+												<div className='flex gap-6'>
+													<ArrowLeftOnRectangleIcon className='h-6 w-6' />
+													<Link to='./' reloadDocument onClick={handleLogout}>
+														Sign out
+													</Link>
+												</div>
+												<ChevronRightIcon className='h-6 w-6' />
+											</li>
+										</>
+									) : (
+										<div className='flex gap-5 justify-center mt-10'>
+											<Link to='/login' reloadDocument>
+												<Button
+													children='Login'
+													backgroundColor='black'
+													textColor='white'
+												/>
+											</Link>
+											<Link to='/register' reloadDocument>
+												<Button
+													children='Sign Up'
+													backgroundColor='transparent'
+													textColor='black'
+												/>
+											</Link>
+										</div>
+									)}
 								</ul>
-								{profile ? (
-									<Button
-										children='Logout'
-										backgroundColor='black'
-										textColor='white'
-										reloadDocument
-										handleClick={() => handleLogout}
-									/>
-								) : (
-									<div className='flex flex-col gap-5'>
-										<Link to='/login' reloadDocument>
-											<Button
-												children='Login'
-												backgroundColor='black'
-												textColor='white'
-											/>
-										</Link>
-										<Link to='/register' reloadDocument>
-											<Button
-												children='Sign Up'
-												backgroundColor='transparent'
-												textColor='black'
-											/>
-										</Link>
-									</div>
-								)}
 							</div>
 						</m.div>
 					</>

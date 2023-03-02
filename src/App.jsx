@@ -11,6 +11,7 @@ import {
 	Create,
 	Product,
 	Products,
+	MyListings,
 } from './pages/index';
 import FetchProducts from './api/FetchProducts';
 import * as storage from './storage/index.mjs';
@@ -82,6 +83,11 @@ function App() {
 					exact
 					path='/create'
 					element={<Create handleLogout={handleLogout} profile={profile} />}
+				/>
+				<Route
+					exact
+					path='/mylistings'
+					element={<MyListings handleLogout={handleLogout} profile={profile} />}
 				/>
 			</Routes>
 		</Router>

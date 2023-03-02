@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import placerholder from '../assets/placeholder-image.png';
+
 function ProductCard({ listing }) {
 	const { id, title, description, media, tags, endsAt } = listing;
 
@@ -23,7 +25,11 @@ function ProductCard({ listing }) {
 		<Link to={`/products/${id}`}>
 			<div className='flex flex-col justify-center items-center text-sm font-thin container'>
 				<div className='bg-teal innerContainer text-sm'>
-					<img src={media} alt={title} className='mx-auto object-contain' />
+					{media ? (
+						<img src={media} alt={title} className='mx-auto object-contain' />
+					) : (
+						<img src={placeholder} alt='there is no image for this auction' />
+					)}
 				</div>
 				<div className='flex-1 textContainer'>
 					<p className='pt-2 uppercase font-bold'>{title}</p>
@@ -33,7 +39,6 @@ function ProductCard({ listing }) {
 						Time Left: <span className='font-bold'>{remainingDays}d</span>
 						<span className='pl-1 font-bold'>{remainingHours}h</span>
 						<span className='font-bold pl-1'>{remainingMinutes}m</span>
-						{/* <span className='font-bold pl-1'>{remainingSeconds}s</span> */}
 					</p>
 					<p className='py-1'>
 						Current bids: <span className='font-bold'>{bids}</span>

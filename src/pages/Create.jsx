@@ -49,7 +49,7 @@ function Create({ handleLogout, profile }) {
 						<div className='relative '>
 							<input
 								id='title'
-								className='w-full border border-black rounded-lg p-2.5 text-black'
+								className='w-full border border-black rounded-lg p-2.5 text-black -z-10'
 								value={title}
 								onChange={onChange}
 								required
