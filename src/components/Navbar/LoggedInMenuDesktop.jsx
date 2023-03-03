@@ -11,6 +11,17 @@ import {
 } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
+/**
+ * @description
+ * A component that displays the logged in menu options and handles user interactions
+ * @component
+ * @param {string} avatar - The URL of the user's avatar image
+ * @param {string} name - The name of the logged in user
+ * @param {function} handleLogout - The function to handle user logout
+ * @param {number} credits - The number of credits that the user has
+ * @returns {JSX.Element} - JSX element representing the LoggedInMenu component
+ */
+
 const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 	const [openLoggedInMenu, setOpenLoggedInMenu] = useState(false);
 

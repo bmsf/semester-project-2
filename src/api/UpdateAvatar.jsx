@@ -1,5 +1,21 @@
 import { API_AUCTION_URL } from './Constants';
 
+/**
+ * @description
+ * Updates the avatar of a user profile.
+ * @param {string} name - The name of the user profile.
+ * @param {object} formData - The form data containing the updated avatar image.
+ * @param {function} updateProfile - The function to update the user profile with the new avatar.
+ * @param {string} token - The user authentication token.
+ * @param {object} profile - The user profile object.
+ *
+ * @returns {Promise<void>} - A Promise that resolves with no value when the avatar is successfully updated.
+ *
+ * @throws {Error} - If an error occurs while updating the avatar.
+ * @example
+ * UpdateAvatar(name, formData, updateProfile, token, profile)
+ */
+
 const UpdateAvatar = async (name, formData, updateProfile, token, profile) => {
 	const action = `/profiles/${name}/media`;
 	const method = 'put';

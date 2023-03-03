@@ -8,21 +8,23 @@ import LoggedInMenu from './LoggedInMenuDesktop';
 import logo from '../../assets/logo-no-background.png';
 import NavbarMobile from './NavbarMobile';
 
-function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
+/**
+ * A navigation bar component that displays a logo, links, and user authentication status.
+ * @component
+ * @param {Object} props - Component props.
+ * @param {string} props.backgroundColor - Background color of the navigation bar.
+ * @param {Function} props.handleLogout - Function to handle user logout.
+ * @param {Object} props.profile - User profile information.
+ * @param {string} props.bgDesktop - Desktop background color.
+ * @returns {JSX.Element} Navbar component.
+ * @example
+ * <Navbar backgroundColor='black' handleLogout={handleLogut profile={profile}}/>
+ * */
+
+const Navbar = () => {
 	const [openMenu, setOpenMenu] = useState(false);
-	const [openLoggedInMenu, setOpenLoggedInMenu] = useState(false);
 
 	const { name, email, credits, avatar } = profile || {};
-
-	const Path = (props) => (
-		<m.path
-			fill='transparent'
-			strokeWidth='3'
-			stroke='hsl(0, 0%, 18%)'
-			strokeLinecap='round'
-			{...props}
-		/>
-	);
 
 	return (
 		<>
@@ -109,6 +111,6 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 			</AnimatePresence>
 		</>
 	);
-}
+};
 
 export default Navbar;

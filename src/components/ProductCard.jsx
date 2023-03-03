@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import placerholder from '../assets/placeholder-image.png';
 
-function ProductCard({ listing }) {
+const ProductCard = ({ listing }) => {
 	const { id, title, description, media, tags, endsAt } = listing;
 
 	const date = new Date(endsAt).getTime();
@@ -69,6 +69,6 @@ function ProductCard({ listing }) {
 			</div>
 		</Link>
 	);
-}
+};
 
 export default ProductCard;

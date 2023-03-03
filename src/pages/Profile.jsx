@@ -2,12 +2,10 @@ import { useState } from 'react';
 import { UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
-import Navbar from '../components/Navbar/Navbar';
-import Button from '../components/Button';
-
+import { Navbar, Button } from '../components/index';
 import UpdateAvatar from '../api/UpdateAvatar';
 
-function Profile({ handleLogout, profile, token, updateProfile }) {
+const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 	const [openModal, setOpenModal] = useState(false);
 
 	const { name, email, credits, avatar } = profile || {};
@@ -115,5 +113,6 @@ function Profile({ handleLogout, profile, token, updateProfile }) {
 			</main>
 		</>
 	);
-}
+};
+
 export default Profile;

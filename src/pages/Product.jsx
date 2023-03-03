@@ -3,15 +3,13 @@ import { useParams } from 'react-router-dom';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { motion as m, AnimatePresence } from 'framer-motion';
 
+import { ImageCarousel, Button, Navbar, InfoBox } from '../components/index';
+
 import FetchProduct from '../api/FetchProduct';
 import Bid from '../api/Bid';
-import ImageCarousel from '../components/ImageCarousel';
-import Button from '../components/Button';
-import Navbar from '../components/Navbar/Navbar';
 import placeholder from '../assets/placeholder-image.png';
-import InfoBox from '../components/InfoBox';
 
-function Product({ profile, handleLogout }) {
+const Product = ({ profile, handleLogout }) => {
 	const { id } = useParams();
 
 	const [product, setProduct] = useState(null);
@@ -76,8 +74,6 @@ function Product({ profile, handleLogout }) {
 
 		Bid(id, formData);
 	};
-
-	console.log(product);
 
 	return (
 		<>
@@ -189,6 +185,6 @@ function Product({ profile, handleLogout }) {
 			</div>
 		</>
 	);
-}
+};
 
 export default Product;

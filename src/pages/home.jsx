@@ -1,10 +1,12 @@
-import Navbar from '../components/Navbar/Navbar';
-import Hero from '../components/Hero';
-import LastChanceSection from '../components/LastChanceSection';
-import TrendingSection from '../components/TrendingSection';
-import Footer from '../components/Footer';
+import {
+	Navbar,
+	Hero,
+	LastChanceSection,
+	TrendingSection,
+	Footer,
+} from '../components/index';
 
-function Home({ handleLogout, profile, listings }) {
+const Home = ({ handleLogout, profile, listings }) => {
 	return (
 		<>
 			<div className='flex flex-col h-screen'>
@@ -20,6 +22,6 @@ function Home({ handleLogout, profile, listings }) {
 			<Footer />
 		</>
 	);
-}
+};
 
 export default Home;

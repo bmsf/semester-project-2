@@ -13,6 +13,20 @@ import { Link } from 'react-router-dom';
 
 import Button from '../Button';
 
+/**
+ * @description
+ * A mobile navigation bar component that displays a menu for navigation
+ * @component
+ * @param {Object} props - The props object
+ * @param {boolean} props.profile - A boolean indicating if the user has a profile
+ * @param {string} props.avatar - The URL of the user's avatar
+ * @param {string} props.name - The name of the user
+ * @param {string} props.email - The email address of the user
+ * @param {Function} props.handleLogout - A function to handle logout
+ * @returns {JSX.Element} - A React component that displays a mobile navigation bar
+ * @returns
+ */
+
 const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
 	return (
 		<>

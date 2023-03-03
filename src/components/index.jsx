@@ -1,0 +1,9 @@
+export { default as Navbar } from './Navbar/Navbar';
+export { default as Button } from './Button';
+export { default as Footer } from './Footer';
+export { default as Hero } from './Hero';
+export { default as ImageCarousel } from './ImageCarousel';
+export { default as InfoBox } from './InfoBox';
+export { default as LastChanceSection } from './LastChanceSection';
+export { default as ProductCard } from './ProductCard';
+export { default as TrendingSection } from './TrendingSection';

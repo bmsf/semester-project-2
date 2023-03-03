@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EyeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline';
 
-import Button from '../components/Button';
+import { Button } from '../components/index';
 import LoginAuth from '../api/auth/LoginAuth';
 import logo from '../assets/logo-no-background.png';
 
-function Login() {
+const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formData, setFormData] = useState({
 		email: '',
@@ -97,6 +97,6 @@ function Login() {
 			</main>
 		</>
 	);
-}
+};
 
 export default Login;

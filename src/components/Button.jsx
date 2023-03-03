@@ -1,36 +1,22 @@
-// function Button({
-// 	children,
-// 	backgroundColor,
-// 	textColor,
-// 	type = 'button',
-// 	handleClick,
-// 	width,
-// 	borderColor,
-// }) {
-// 	return (
-// 		<button
-// 			className={`rounded-md font-thin py-2 w-44 text-black bg-transparent text-lg border border-black  hover:text-white transition duration-300 ease-in-out ${
-// 				borderColor ? `border-${borderColor}` : 'border-black'
-// 			}`}
-// 			style={{
-// 				backgroundColor: backgroundColor,
-// 				color: textColor,
-// 				width: width,
-// 				border: borderColor,
-// 			}}
-// 			type={type}
-// 			onClick={handleClick}
-// 		>
-// 			{children}
-// 		</button>
-// 	);
-// }
+import { motion as m } from 'framer-motion';
 
-// export default Button;
-
-import { motion } from 'framer-motion';
-
-function Button({
+/**
+ *@description
+ * A custom button component that supports hover and tap animations using Framer Motion.
+ *
+ * @param {object} props - The component's props.
+ * @param {ReactNode} props.children - The button's label.
+ * @param {string} props.backgroundColor - The button's background color.
+ * @param {string} props.textColor - The button's text color.
+ * @param {string} [props.type='button'] - The button's HTML type attribute.
+ * @param {function} [props.handleClick] - A function to call when the button is clicked.
+ * @param {string} [props.width] - The button's width.
+ * @param {string} [props.borderColor] - The button's border color.
+ * @returns {JSX.Element} - A custom button component.
+ * @example
+ * <Button children='Hello' backgroundColor='black' textColor='white' type='submit' handleClick={() => setOpenModal(!openModal)} />
+ * */
+const Button = ({
 	children,
 	backgroundColor,
 	textColor,
@@ -38,7 +24,7 @@ function Button({
 	handleClick,
 	width,
 	borderColor,
-}) {
+}) => {
 	const buttonVariants = {
 		rest: {
 			backgroundColor: backgroundColor,
@@ -65,12 +51,14 @@ function Button({
 	};
 
 	return (
-		<motion.button
-			className={`rounded-md font-thin py-2 w-44 text-black  text-lg border ${
+		<m.button
+			className={`rounded-md font-thin py-2 w-44  text-lg border ${
 				borderColor ? `border-${borderColor}` : 'border-black'
 			}`}
 			style={{
 				width: width,
+				backgroundColor: backgroundColor,
+				color: textColor,
 			}}
 			type={type}
 			onClick={handleClick}
@@ -79,8 +67,8 @@ function Button({
 			whileTap='tap'
 		>
 			{children}
-		</motion.button>
+		</m.button>
 	);
-}
+};
 
 export default Button;

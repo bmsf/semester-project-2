@@ -1,6 +1,19 @@
 import { API_AUCTION_URL } from './Constants';
 const action = '/listings';
 
+/**
+ * @description
+ * Fetches product details for the given product id
+ * @async
+ * @function FetchProduct
+ * @param {number} id - The id of the product to fetch
+ * @returns {Promise<Object>} - An object containing product details
+ * @throws {Error} - Throws an error if the API call fails
+ * @example
+   const productDetails = await FetchProduct(123);
+   console.log(productDetails);
+ */
+
 const FetchProduct = async (id) => {
 	try {
 		const getListingsURL = `${API_AUCTION_URL}${action}/${id}?_seller=true&_bids=true`;
