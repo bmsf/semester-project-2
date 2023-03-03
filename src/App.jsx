@@ -35,8 +35,6 @@ function App() {
 		window.location.reload(true);
 	};
 
-	//API call to fetch all products and store them in state to pass as props
-
 	const [listings, setListings] = useState([]);
 
 	useEffect(() => {

@@ -21,7 +21,7 @@ import NavbarMobile from './NavbarMobile';
  * <Navbar backgroundColor='black' handleLogout={handleLogut profile={profile}}/>
  * */
 
-const Navbar = () => {
+const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 	const [openMenu, setOpenMenu] = useState(false);
 
 	const { name, email, credits, avatar } = profile || {};
