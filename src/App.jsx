@@ -44,6 +44,27 @@ function App() {
 	return (
 		<Router>
 			<Routes>
+				<Route
+					exact
+					path='/'
+					element={
+						<Home
+							handleLogout={handleLogout}
+							profile={profile}
+							listings={listings}
+						/>
+					}
+				/>
+				<Route path='/products'>
+					<Route index element={<Products />} />
+					<Route
+						path=':id'
+						element={<Product handleLogout={handleLogout} profile={profile} />}
+					/>
+				</Route>
+
+				<Route exact path='/login' element={<Login />} />
+				<Route exact path='/register' element={<Register />} />
 				{profile && (
 					<>
 						<Route
@@ -73,27 +94,6 @@ function App() {
 						/>
 					</>
 				)}
-				<Route
-					exact
-					path='/'
-					element={
-						<Home
-							handleLogout={handleLogout}
-							profile={profile}
-							listings={listings}
-						/>
-					}
-				/>
-				<Route path='/products'>
-					<Route index element={<Products />} />
-					<Route
-						path=':id'
-						element={<Product handleLogout={handleLogout} profile={profile} />}
-					/>
-				</Route>
-
-				<Route exact path='/login' element={<Login />} />
-				<Route exact path='/register' element={<Register />} />
 			</Routes>
 		</Router>
 	);
