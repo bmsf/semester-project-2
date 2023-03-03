@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import CreateListing from '../api/CreateListing';
-import Navbar from '../components/Navbar';
+import { Navbar } from '../components/index';
 
-function Create({ handleLogout, profile }) {
+const Create = ({ handleLogout, profile }) => {
 	const [formData, setFormData] = useState({
 		title: '',
 		description: '',
@@ -131,6 +131,6 @@ function Create({ handleLogout, profile }) {
 			</main>
 		</>
 	);
-}
+};
 
 export default Create;

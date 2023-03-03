@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence, motion as m } from 'framer-motion';
+// import { AnimatePresence, motion as m } from 'framer-motion';
 
 import './index.css';
 import {
@@ -13,6 +13,7 @@ import {
 	Products,
 	MyListings,
 } from './pages/index';
+
 import FetchProducts from './api/FetchProducts';
 import * as storage from './storage/index.mjs';
 
@@ -34,8 +35,6 @@ function App() {
 		storage.remove('token');
 		window.location.reload(true);
 	};
-
-	//API call to fetch all products and store them in state to pass as props
 
 	const [listings, setListings] = useState([]);
 
@@ -67,28 +66,35 @@ function App() {
 
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/register' element={<Register />} />
-				<Route
-					exact
-					path='/profile'
-					element={
-						<Profile
-							handleLogout={handleLogout}
-							profile={profile}
-							token={token}
-							updateProfile={updateProfile}
+				{profile && (
+					<>
+						<Route
+							exact
+							path='/profile'
+							element={
+								<Profile
+									handleLogout={handleLogout}
+									profile={profile}
+									token={token}
+									updateProfile={updateProfile}
+								/>
+							}
 						/>
-					}
-				/>
-				<Route
-					exact
-					path='/create'
-					element={<Create handleLogout={handleLogout} profile={profile} />}
-				/>
-				<Route
-					exact
-					path='/mylistings'
-					element={<MyListings handleLogout={handleLogout} profile={profile} />}
-				/>
+
+						<Route
+							exact
+							path='/create'
+							element={<Create handleLogout={handleLogout} profile={profile} />}
+						/>
+						<Route
+							exact
+							path='/mylistings'
+							element={
+								<MyListings handleLogout={handleLogout} profile={profile} />
+							}
+						/>
+					</>
+				)}
 			</Routes>
 		</Router>
 	);

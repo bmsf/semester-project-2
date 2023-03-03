@@ -1,26 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import {
-	ChevronRightIcon,
-	ChevronLeftIcon,
-	XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { useState } from 'react';
 
-const ImageCarousel = ({ media, description }) => {
-	const [width, setWidth] = useState(0);
-	const carousel = useRef();
-	const innerCarousel = useRef();
+import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 
-	// useEffect(() => {
-	// 	setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-	// }, []);
-
-	// const scrollCarousel = (delta) => {
-	// 	let distance = 0;
-	// 	distance += delta;
-	// 	innerCarousel.current.style.transform = `translateX(${distance}px)`;
-	// };
-
+const ImageCarousel = ({ media }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	const handlePrevClick = () => {

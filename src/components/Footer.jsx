@@ -3,7 +3,7 @@ import { CiTwitter, CiFacebook, CiInstagram } from 'react-icons/ci';
 
 import logo from '../assets/logo-no-background.png';
 
-function Footer() {
+const Footer = () => {
 	return (
 		<footer className='flex flex-col justify-center items-center'>
 			<img src={logo} alt='Image of logo' className='w-2/3 lg:w-1/5' />
@@ -31,6 +31,6 @@ function Footer() {
 			</div>
 		</footer>
 	);
-}
+};
 
 export default Footer;

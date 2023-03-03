@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import placerholder from '../assets/placeholder-image.png';
 
-function ProductCard({ listing }) {
+const ProductCard = ({ listing }) => {
 	const { id, title, description, media, tags, endsAt } = listing;
 
 	const date = new Date(endsAt).getTime();
@@ -21,32 +21,54 @@ function ProductCard({ listing }) {
 
 	const bids = listing._count.bids;
 
+	const mediaSrc = media || placeholder;
+
+	//Reducing the amount of words shown by description
+	const descriptionWords = description.split(' ');
+
+	const truncatedDescription = descriptionWords.slice(0, 10).join(' ');
+
+	const displayDescription =
+		descriptionWords.length > 10
+			? truncatedDescription + '...'
+			: truncatedDescription;
+
 	return (
 		<Link to={`/products/${id}`}>
-			<div className='flex flex-col justify-center items-center text-sm font-thin container'>
-				<div className='bg-teal innerContainer text-sm'>
-					{media ? (
-						<img src={media} alt={title} className='mx-auto object-contain' />
+			<div className='bg-white container rounded-lg overflow-hidden  hover:shadow-lg transition-shadow duration-300'>
+				<div className='innerContainer w-full h-full overflow-hidden border-gray border'>
+					{mediaSrc ? (
+						<img
+							src={mediaSrc}
+							alt={title}
+							className='w-full h-full object-cover'
+						/>
 					) : (
-						<img src={placeholder} alt='there is no image for this auction' />
+						<div className='w-full h-full bg-gray-200'></div>
 					)}
 				</div>
-				<div className='flex-1 textContainer'>
-					<p className='pt-2 uppercase font-bold'>{title}</p>
-					<p className='py-1 capitalize'>{description}</p>
+				<div className='py-4'>
+					<h3 className='text-lg font-bold'>{title}</h3>
 
-					<p className='py-1'>
-						Time Left: <span className='font-bold'>{remainingDays}d</span>
-						<span className='pl-1 font-bold'>{remainingHours}h</span>
-						<span className='font-bold pl-1'>{remainingMinutes}m</span>
-					</p>
-					<p className='py-1'>
-						Current bids: <span className='font-bold'>{bids}</span>
-					</p>
+					<p className='text-sm py-2'>{displayDescription}</p>
+
+					<div className='mt-4 flex items-center justify-between'>
+						<div>
+							<p className='text-gray-500 text-sm'>
+								Time Left:{' '}
+								<span className='font-bold'>
+									{remainingDays}d {remainingHours}h {remainingMinutes}m
+								</span>
+							</p>
+							<p className='text-gray-500 text-sm'>
+								Current bids: <span className='font-bold'>{bids}</span>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</Link>
 	);
-}
+};
 
 export default ProductCard;

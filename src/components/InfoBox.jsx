@@ -5,19 +5,6 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline';
 const InfoBox = ({ title, children }) => {
 	const [expanded, setExpanded] = useState(false);
 
-	// const date = new Date(endsAt).getTime();
-
-	// const now = new Date().getTime();
-
-	// let timeleft = date - now;
-
-	// const remainingDays = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-	// const remainingHours = Math.floor(
-	// 	(timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-	// );
-	// const remainingMinutes = Math.floor(
-	// 	(timeleft % (1000 * 60 * 60)) / (1000 * 60)
-	// );
 
 	const arrowVariants = {
 		expanded: { rotate: 90 },
