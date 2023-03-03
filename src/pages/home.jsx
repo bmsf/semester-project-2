@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero';
 import LastChanceSection from '../components/LastChanceSection';
 import TrendingSection from '../components/Trending';

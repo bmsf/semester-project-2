@@ -2,7 +2,7 @@ import ProductCard from './ProductCard';
 
 function LastChanceSection({ listings }) {
 	return (
-		<section className='py-32 mx-auto md:mt-20 lg:mt-0'>
+		<section className='py-32 mx-auto mt-20 lg:mt-0'>
 			<h2 className='px-5 text-xl pl-10'>Last chance</h2>
 			<div className='grid mx-auto'>
 				{listings

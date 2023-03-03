@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import Button from '../components/Button';
 
 import UpdateAvatar from '../api/UpdateAvatar';

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import CreateListing from '../api/CreateListing';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 
 function Create({ handleLogout, profile }) {
 	const [formData, setFormData] = useState({

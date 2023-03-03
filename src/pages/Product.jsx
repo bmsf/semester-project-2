@@ -7,7 +7,7 @@ import FetchProduct from '../api/FetchProduct';
 import Bid from '../api/Bid';
 import ImageCarousel from '../components/ImageCarousel';
 import Button from '../components/Button';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import placeholder from '../assets/placeholder-image.png';
 import InfoBox from '../components/InfoBox';
 
