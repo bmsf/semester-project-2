@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { ChevronRightIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import { motion as m, AnimatePresence } from 'framer-motion';
 
 import FetchProduct from '../api/FetchProduct';
@@ -20,8 +20,6 @@ function Product({ profile, handleLogout }) {
 	const [formData, setFormData] = useState({
 		amount: '',
 	});
-
-	const [isOpen, setOpen] = useState(false);
 
 	const handleClick = () => {
 		setOpenModal(!openModal);
@@ -113,12 +111,14 @@ function Product({ profile, handleLogout }) {
 								By: {highestBid.bidderName ?? 'No bids'}
 							</p>
 						</div>
-						<Button
-							children='Make bid'
-							textColor='White'
-							backgroundColor='black'
-							handleClick={handleClick}
-						/>
+						{profile && (
+							<Button
+								children='Make bid'
+								textColor='White'
+								backgroundColor='black'
+								handleClick={handleClick}
+							/>
+						)}
 					</div>
 				</div>
 				<div className='bg-white w-full h-20 px-6 py-2 flex justify-between items-center lg:hidden text-gray-font fixed bottom-0 shadow-lg z-40 border-t border-gray-99'>
@@ -131,12 +131,14 @@ function Product({ profile, handleLogout }) {
 						</p>
 						<p className='text-sm'>By: {highestBid.bidderName ?? 'No bids'}</p>
 					</div>
-					<Button
-						children='Make bid'
-						textColor='White'
-						backgroundColor='black'
-						handleClick={handleClick}
-					/>
+					{profile && (
+						<Button
+							children='Make bid'
+							textColor='White'
+							backgroundColor='black'
+							handleClick={handleClick}
+						/>
+					)}
 					<AnimatePresence>
 						{openModal && (
 							<>

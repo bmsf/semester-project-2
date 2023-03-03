@@ -16,17 +16,17 @@ html {
 }
 
 .container {
-	width: 100%;
-	object-fit: contain;
-	margin-bottom: 1rem;
+	max-height: 500px;
+	width: 294px;
+	display: flex;
+
+	flex-direction: column;
+	/* padding: 50px; */
 }
 
 .innerContainer {
-	height: 338px;
-	width: 294px;
-	display: flex;
-	padding: 50px;
-	object-fit: cover;
+	height: 300px;
+	object-fit: contain;
 }
 
 .textContainer {

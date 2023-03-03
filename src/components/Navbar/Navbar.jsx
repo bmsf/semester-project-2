@@ -27,7 +27,7 @@ function Navbar({ backgroundColor, handleLogout, profile, bgDesktop }) {
 	return (
 		<>
 			<nav
-				className='w-full p-5 flex justify-between items-center lg:p-10'
+				className='w-full p-5 flex justify-between items-center lg:p-10 '
 				style={{ backgroundColor: backgroundColor }}
 			>
 				<div className='w-20'>

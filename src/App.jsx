@@ -46,6 +46,35 @@ function App() {
 	return (
 		<Router>
 			<Routes>
+				{profile && (
+					<>
+						<Route
+							exact
+							path='/profile'
+							element={
+								<Profile
+									handleLogout={handleLogout}
+									profile={profile}
+									token={token}
+									updateProfile={updateProfile}
+								/>
+							}
+						/>
+
+						<Route
+							exact
+							path='/create'
+							element={<Create handleLogout={handleLogout} profile={profile} />}
+						/>
+						<Route
+							exact
+							path='/mylistings'
+							element={
+								<MyListings handleLogout={handleLogout} profile={profile} />
+							}
+						/>
+					</>
+				)}
 				<Route
 					exact
 					path='/'
@@ -67,28 +96,6 @@ function App() {
 
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/register' element={<Register />} />
-				<Route
-					exact
-					path='/profile'
-					element={
-						<Profile
-							handleLogout={handleLogout}
-							profile={profile}
-							token={token}
-							updateProfile={updateProfile}
-						/>
-					}
-				/>
-				<Route
-					exact
-					path='/create'
-					element={<Create handleLogout={handleLogout} profile={profile} />}
-				/>
-				<Route
-					exact
-					path='/mylistings'
-					element={<MyListings handleLogout={handleLogout} profile={profile} />}
-				/>
 			</Routes>
 		</Router>
 	);

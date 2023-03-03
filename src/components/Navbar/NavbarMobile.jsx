@@ -11,8 +11,9 @@ import {
 import { motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+import Button from '../Button';
+
 const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
-	
 	return (
 		<>
 			<m.div

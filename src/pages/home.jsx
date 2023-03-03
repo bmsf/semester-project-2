@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero';
 import LastChanceSection from '../components/LastChanceSection';
-import TrendingSection from '../components/Trending';
+import TrendingSection from '../components/TrendingSection';
 import Footer from '../components/Footer';
 
 function Home({ handleLogout, profile, listings }) {
