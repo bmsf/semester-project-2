@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion as m } from 'framer-motion';
-import Home from './pages/Home';
+import Home from './pages/Home.jsx';
 
 import './index.css';
 import {
