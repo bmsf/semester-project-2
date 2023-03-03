@@ -1,24 +1,19 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AnimatePresence, motion as m } from 'framer-motion';
-import Home from './pages/Home.jsx';
-import Register from './pages/Register.jsx';
-import Profile from './pages/Profile';
-import Create from './pages/Create.jsx';
-import Product from './pages/Product.jsx';
-import Products from './pages/Products.jsx';
+// import { AnimatePresence, motion as m } from 'framer-motion';
 
 import './index.css';
-// import {
-// 	Home,
-// 	Login,
-// 	Register,
-// 	Profile,
-// 	Create,
-// 	Product,
-// 	Products,
-// 	MyListings,
-// } from './pages/index';
+import {
+	Home,
+	Login,
+	Register,
+	Profile,
+	Create,
+	Product,
+	Products,
+	MyListings,
+} from './pages/index';
+
 import FetchProducts from './api/FetchProducts';
 import * as storage from './storage/index.mjs';
 
