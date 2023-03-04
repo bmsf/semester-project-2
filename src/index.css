@@ -35,8 +35,8 @@ html {
 
 .productImg {
 	min-height: 390px;
-	width: 294px;
-	object-fit: cover;
+	max-width: 270px;
+	object-fit: contain;
 }
 
 li {

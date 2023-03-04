@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { motion as m, AnimatePresence } from 'framer-motion';
@@ -8,6 +9,7 @@ import { ImageCarousel, Button, Navbar, InfoBox } from '../components/index';
 import FetchProduct from '../api/FetchProduct';
 import Bid from '../api/Bid';
 import placeholder from '../assets/placeholder-image.png';
+import calculateTimeRemaining from '../utils/calculateTimeRemaining';
 
 const Product = ({ profile, handleLogout }) => {
 	const { id } = useParams();
@@ -78,24 +80,27 @@ const Product = ({ profile, handleLogout }) => {
 	return (
 		<>
 			<Navbar handleLogout={handleLogout} profile={profile} />
-			<div className='flex flex-col gap-12 mt-10 mb-32 lg:flex-row lg:justify-between xl:justify-around lg:mx-20'>
-				<div className='mb-20'>
+			<div className='flex flex-col items-center lg:flex-row xl:justify-around m-20'>
+				<div className='mb-8 lg:mr-10 lg:w-2/5'>
 					{media.length > 0 ? (
 						<ImageCarousel media={media} />
 					) : (
-						<div className='w-screen md:w-1/3 md:m-10 border-b border-t'>
+						<div className='w-full border rounded-lg border-gray-300'>
 							<img src={placeholder} alt='image is missing' />
 						</div>
 					)}
 				</div>
-				<div className='flex flex-col  border rounded-md m-10 lg:m-0 mx-auto border-gray w-3/4 lg:w-3/5 xl:w-2/5'>
+				<div className='flex flex-col  border rounded-md m-10 lg:m-0 mx-auto border-gray w-3/4 lg:w-3/5 xl:w-3/5'>
 					<div className='border-b border-gray w-full flex flex-between p-8'>
 						<h1 className='text-xl font-bold'>{title}</h1>
 					</div>
 					<InfoBox title='Details' children={description} />
 					<InfoBox title='Seller' children={seller.name} />
-					<InfoBox title='Time left' children={endsAt} />
-					<div className='hidden lg:flex justify-between items-center px-6 h-full'>
+					<InfoBox title='Time left' endsAt={endsAt} />
+					<div
+						className='hidden lg:flex justify-between items-center py-12
+					px-3 xl:px-8'
+					>
 						<div className='flex flex-col'>
 							<p>
 								Current highest bid:{' '}
@@ -107,13 +112,20 @@ const Product = ({ profile, handleLogout }) => {
 								By: {highestBid.bidderName ?? 'No bids'}
 							</p>
 						</div>
-						{profile && (
+						{profile ? (
 							<Button
 								children='Make bid'
 								textColor='White'
 								backgroundColor='black'
 								handleClick={handleClick}
 							/>
+						) : (
+							<p className='text-black'>
+								<Link className='font-bold' to='/login'>
+									Login
+								</Link>{' '}
+								to make bid
+							</p>
 						)}
 					</div>
 				</div>

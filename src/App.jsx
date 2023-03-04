@@ -66,7 +66,10 @@ function App() {
 				/>
 
 				<Route path='/listings'>
-					<Route index element={<Listings />} />
+					<Route
+						index
+						element={<Listings handleLogout={handleLogout} profile={profile} />}
+					/>
 					<Route
 						path=':id'
 						element={<Product handleLogout={handleLogout} profile={profile} />}

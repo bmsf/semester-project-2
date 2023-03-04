@@ -1,40 +1,26 @@
 import { Link } from 'react-router-dom';
 
 import placerholder from '../assets/placeholder-image.png';
+import calculateTimeRemaining from '../utils/calculateTimeRemaining';
+import truncateDescription from '../utils/truncateDescription';
 
 const ProductCard = ({ listing }) => {
 	const { id, title, description, media, tags, endsAt } = listing;
 
-	const date = new Date(endsAt).getTime();
+	const timeRemaining = calculateTimeRemaining(endsAt);
 
-	const now = new Date().getTime();
-
-	let timeleft = date - now;
-
-	const remainingDays = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-	const remainingHours = Math.floor(
-		(timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-	);
-	const remainingMinutes = Math.floor(
-		(timeleft % (1000 * 60 * 60)) / (1000 * 60)
-	);
+	const { remainingDays, remainingHours, remainingMinutes } = timeRemaining;
 
 	const bids = listing._count.bids;
 
 	const mediaSrc = media || placeholder;
 
-	//Reducing the amount of words shown by description
-	const descriptionWords = description.split(' ');
+	const display = truncateDescription(description, 10);
 
-	const truncatedDescription = descriptionWords.slice(0, 10).join(' ');
-
-	const displayDescription =
-		descriptionWords.length > 10
-			? truncatedDescription + '...'
-			: truncatedDescription;
+	console.log(display);
 
 	return (
-		<Link to={`/products/${id}`}>
+		<Link to={`/listings/${id}`}>
 			<div className='bg-white container rounded-lg overflow-hidden  hover:shadow-lg transition-shadow duration-300'>
 				<div className='innerContainer w-full h-full overflow-hidden border-gray border'>
 					{mediaSrc ? (
@@ -50,7 +36,7 @@ const ProductCard = ({ listing }) => {
 				<div className='py-4'>
 					<h3 className='text-lg font-bold'>{title}</h3>
 
-					<p className='text-sm py-2'>{displayDescription}</p>
+					<p className='text-sm py-2'>{display}</p>
 
 					<div className='mt-4 flex items-center justify-between'>
 						<div>
