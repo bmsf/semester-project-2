@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from '../Constants';
+import { API_AUCTION_URL } from '../constants';
 import * as storage from '../../storage/index.mjs';
 
 const action = '/auth/login';

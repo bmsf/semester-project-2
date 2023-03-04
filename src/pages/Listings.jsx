@@ -3,6 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 import Navbar from '../components/Navbar/Navbar';
 import ListingCard from '../components/ListingCard';
+import { Footer } from '../components';
 
 const Listings = ({ handleLogout, profile, listings }) => {
 	const listingsPerPage = 16;
@@ -86,6 +87,7 @@ const Listings = ({ handleLogout, profile, listings }) => {
 					</div>
 				)}
 			</main>
+			<Footer />
 		</>
 	);
 };

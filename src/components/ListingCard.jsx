@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import placerholder from '../assets/placeholder-image.png';
+import placeholder from '../assets/placeholder-image.png';
 import calculateTimeRemaining from '../utils/calculateTimeRemaining';
 import truncateDescription from '../utils/truncateDescription';
 
@@ -13,22 +13,16 @@ const ProductCard = ({ listing }) => {
 
 	const bids = listing._count.bids;
 
-	const mediaSrc = media || placeholder;
-
 	const display = truncateDescription(description, 10);
 
 	return (
 		<Link to={`/listings/${id}`}>
 			<div className='bg-white overflow-hidden'>
 				<div className='w-full flex justify-center'>
-					{mediaSrc ? (
-						<img
-							src={mediaSrc}
-							alt={title}
-							className='w-full object-cover max-h-full max-w-full'
-						/>
+					{media.length > 0 ? (
+						<img src={media} alt={title} />
 					) : (
-						<div className='w-full h-full bg-gray-200'></div>
+						<img src={placeholder} alt='image is missing' />
 					)}
 				</div>
 				<div className='py-4'>

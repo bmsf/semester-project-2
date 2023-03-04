@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
-import { Navbar, Button } from '../components/index';
-import UpdateAvatar from '../api/UpdateAvatar';
+import { Navbar, Button, Footer } from '../components/index';
+import updateAvatar from '../api/updateAvatar';
 
 const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 	const [openModal, setOpenModal] = useState(false);
 
-	const { name, email, credits, avatar } = profile || {};
+	const { name, email, avatar } = profile || {};
 
 	const handleBackdropClick = (e) => {
 		// Check if the target element is the backdrop (i.e., has the 'backdrop' id)
@@ -32,7 +32,7 @@ const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		UpdateAvatar(name, formData, updateProfile, token, profile);
+		updateAvatar(name, formData, updateProfile, token, profile);
 	};
 
 	return (
@@ -111,6 +111,7 @@ const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 					)}
 				</AnimatePresence>
 			</main>
+			<Footer />
 		</>
 	);
 };

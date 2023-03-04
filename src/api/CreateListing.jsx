@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from './Constants';
+import { API_AUCTION_URL } from './constants';
 import * as storage from '../storage';
 
 const action = '/listings';
@@ -14,7 +14,7 @@ const method = 'post';
  * @returns {void}
  * @throws {Error} If an error occurs during the creation of the listing
  * @example
- CreateListing({
+ createListing({
  title: "Example listing",
  description: "This is an example auction listing",
  image: "https://example.com/listing.jpg",
@@ -22,7 +22,7 @@ const method = 'post';
 });
 */
 
-const CreateListing = async (listingData) => {
+const createListing = async (listingData) => {
 	try {
 		const token = storage.load('token');
 		const createListingURL = API_AUCTION_URL + action;
@@ -50,4 +50,4 @@ const CreateListing = async (listingData) => {
 	}
 };
 
-export default CreateListing;
+export default createListing;

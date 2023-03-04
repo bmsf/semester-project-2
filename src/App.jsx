@@ -21,7 +21,7 @@ import {
 	NotFound,
 } from './pages/index';
 
-import FetchProducts from './api/FetchProducts';
+import fetchProducts from './api/fetchProducts';
 import * as storage from './storage/index.mjs';
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
 	const [listings, setListings] = useState([]);
 
 	useEffect(() => {
-		FetchProducts(setListings);
+		fetchProducts(setListings);
 	}, []);
 
 	return (

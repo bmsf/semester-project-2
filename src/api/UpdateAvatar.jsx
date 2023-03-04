@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from './Constants';
+import { API_AUCTION_URL } from './constants';
 
 /**
  * @description
@@ -13,10 +13,10 @@ import { API_AUCTION_URL } from './Constants';
  *
  * @throws {Error} - If an error occurs while updating the avatar.
  * @example
- * UpdateAvatar(name, formData, updateProfile, token, profile)
+ * updateAvatar(name, formData, updateProfile, token, profile)
  */
 
-const UpdateAvatar = async (name, formData, updateProfile, token, profile) => {
+const updateAvatar = async (name, formData, updateProfile, token, profile) => {
 	const action = `/profiles/${name}/media`;
 	const method = 'put';
 	const updateMediaURL = API_AUCTION_URL + action;
@@ -49,4 +49,4 @@ const UpdateAvatar = async (name, formData, updateProfile, token, profile) => {
 	}
 };
 
-export default UpdateAvatar;
+export default updateAvatar;

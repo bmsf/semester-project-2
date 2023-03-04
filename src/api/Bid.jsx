@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from './Constants';
+import { API_AUCTION_URL } from './constants';
 
 /**
  * Sends a bid to the API for a given listing ID.
@@ -12,7 +12,7 @@ import { API_AUCTION_URL } from './Constants';
  * Bid("abc123", { amount: 100 });
  */
 
-const Bid = async (id, formData) => {
+const bid = async (id, formData) => {
 	const action = `/listing/${id}/bids`;
 	const method = 'post';
 	const bidURL = API_AUCTION_URL + action;
@@ -38,4 +38,4 @@ const Bid = async (id, formData) => {
 	}
 };
 
-export default Bid;
+export default bid;

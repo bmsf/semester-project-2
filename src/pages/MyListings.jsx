@@ -1,6 +1,7 @@
 import { Navbar } from '../components/index';
 
 const MyListings = ({ handleLogout, profile }) => {
+	console.log(profile);
 	return (
 		<>
 			<Navbar handleLogout={handleLogout} profile={profile} />

@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import heroImage from '../../assets/undraw_business_deal_re_up4u.svg';
+import Button from '../Button';
 
 const Hero = () => {
 	return (

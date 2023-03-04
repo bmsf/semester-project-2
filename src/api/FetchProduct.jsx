@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from './Constants';
+import { API_AUCTION_URL } from './constants';
 const action = '/listings';
 
 /**
@@ -14,7 +14,7 @@ const action = '/listings';
    console.log(productDetails);
  */
 
-const FetchProduct = async (id) => {
+const fetchProduct = async (id) => {
 	try {
 		const getListingsURL = `${API_AUCTION_URL}${action}/${id}?_seller=true&_bids=true`;
 
@@ -27,4 +27,4 @@ const FetchProduct = async (id) => {
 	}
 };
 
-export default FetchProduct;
+export default fetchProduct;

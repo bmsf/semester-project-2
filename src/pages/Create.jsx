@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import CreateListing from '../api/CreateListing';
-import { Navbar } from '../components/index';
+import createListing from '../api/createListing';
+import { Footer, Navbar } from '../components/index';
 
 const Create = ({ handleLogout, profile }) => {
 	const [formData, setFormData] = useState({
@@ -32,13 +31,13 @@ const Create = ({ handleLogout, profile }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		CreateListing(formData);
+		createListing(formData);
 	};
 
 	return (
 		<>
 			<Navbar handleLogout={handleLogout} profile={profile} />
-			<main className='flex flex-col items-center h-screen w-full gap-5 mt-20'>
+			<main className='flex flex-col items-center h-screen w-full gap-5 my-20'>
 				<h1 className='text-xl'>Create an Auction Listing</h1>
 				<form
 					onSubmit={onSubmit}
@@ -129,6 +128,7 @@ const Create = ({ handleLogout, profile }) => {
 					</button>
 				</form>
 			</main>
+			<Footer />
 		</>
 	);
 };

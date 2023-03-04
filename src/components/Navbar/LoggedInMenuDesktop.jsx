@@ -30,7 +30,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 	};
 
 	return (
-		<m.div className='hidden lg:flex items-center border  rounded-xl relative'>
+		<m.div className='hidden lg:flex items-center border rounded relative'>
 			<div className='flex gap-1 p-3 border-r'>
 				<p className=''>{credits}</p>
 				<CircleStackIcon className='h-6 w-6' />
@@ -77,7 +77,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 									<li className='flex items-center justify-between cursor-pointer '>
 										<div className='flex gap-1'>
 											<PlusCircleIcon className='h-6 w-6' />
-											<Link to='/profile' reloadDocument>
+											<Link to='/create' reloadDocument>
 												Create Listing
 											</Link>
 										</div>

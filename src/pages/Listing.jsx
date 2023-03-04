@@ -4,12 +4,17 @@ import { useParams } from 'react-router-dom';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { motion as m, AnimatePresence } from 'framer-motion';
 
-import { ImageCarousel, Button, Navbar, InfoBox } from '../components/index';
+import {
+	ImageCarousel,
+	Button,
+	Navbar,
+	InfoBox,
+	Footer,
+} from '../components/index';
 
-import FetchProduct from '../api/FetchProduct';
-import Bid from '../api/Bid';
+import FetchProduct from '../api/fetchProduct';
+import bid from '../api/bid';
 import placeholder from '../assets/placeholder-image.png';
-import calculateTimeRemaining from '../utils/calculateTimeRemaining';
 
 const Product = ({ profile, handleLogout }) => {
 	const { id } = useParams();
@@ -74,7 +79,7 @@ const Product = ({ profile, handleLogout }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		Bid(id, formData);
+		bid(id, formData);
 	};
 
 	return (
@@ -85,7 +90,7 @@ const Product = ({ profile, handleLogout }) => {
 					{media.length > 0 ? (
 						<ImageCarousel media={media} />
 					) : (
-						<div className='w-full border rounded-lg border-gray-300'>
+						<div className='w-full border rounded-lg border-gray'>
 							<img src={placeholder} alt='image is missing' />
 						</div>
 					)}
@@ -195,6 +200,7 @@ const Product = ({ profile, handleLogout }) => {
 					</AnimatePresence>
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 };
