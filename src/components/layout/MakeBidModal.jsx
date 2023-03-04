@@ -21,7 +21,7 @@ const MakeBidModal = ({
 						id='backdrop'
 						className='overflow-y-hidden backdrop-blur-md bg-[#BCBCBF] overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-screen flex items-center justify-center w-screen'
 					>
-						<div className='bg-white flex flex-col items-center p-24 my-20 justify-center h-full md:h-1/3  w-full md:w-2/3 lg:w-2/4 xl:w-2/4 rounded'>
+						<div className='modal bg-white flex flex-col items-center p-24 my-20 justify-center h-full md:h-1/3  w-full md:w-2/3 lg:w-2/4 xl:w-2/4 rounded'>
 							<div className='w-full flex flex-col gap-20 md:gap-10'>
 								<div className='flex justify-between w-full'>
 									<h2 className='self-center'>Make a bid</h2>
@@ -34,7 +34,7 @@ const MakeBidModal = ({
 									</div>
 								</div>
 								<form className='flex flex-col gap-2' onSubmit={onSubmit}>
-									<div className='relative '>
+									<div className='relative'>
 										<input
 											type='number'
 											id='amount'
@@ -49,7 +49,7 @@ const MakeBidModal = ({
 									</div>
 
 									<button
-										className='rounded-md font-thin py-2 text-white bg-transparent text-lg border border-black bg-black w-full'
+										className='rounded-md font-thin py-2.5 my-2.5 text-white bg-transparent text-lg border border-black bg-black w-full'
 										type='submit'
 									>
 										Place Bid

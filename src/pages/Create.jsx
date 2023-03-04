@@ -102,7 +102,7 @@ const Create = ({ handleLogout, profile }) => {
 							/>
 						</div>
 					</div>
-					<div className='flex flex-col pb-2 w-2/4 lg:w-1/3'>
+					<div className='flex flex-col pb-2 w-3/4 lg:w-1/3'>
 						<label className='mb-2 text-sm font-medium'>
 							Auction End Date*
 						</label>
@@ -110,10 +110,11 @@ const Create = ({ handleLogout, profile }) => {
 							<input
 								type='date'
 								id='endsAt'
-								className='w-full border border-black rounded-lg p-2.5 text-black'
+								className='w-full border border-black rounded-lg p-3 text-black'
 								value={endsAt}
 								onChange={onChange}
 								required
+								placeholder='01.01.2023'
 								// pattern='^[a-zA-Z0-9]+(?:[,]+[a-zA-Z0-9]+){0,5}$'
 								title='The tags need to be separated with a comma'
 							/>

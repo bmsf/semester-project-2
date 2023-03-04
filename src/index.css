@@ -43,6 +43,10 @@ html {
 	}
 }
 
+.modal {
+	min-height: 350px;
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
