@@ -64,7 +64,7 @@ function Register() {
 								pattern='^[\w]+$'
 								maxLength='20'
 								placeholder='Jon Doe'
-								title='Name can maximum contain 20 letters and no numbers'
+								title='Name can maximum contain 20 letters and no numbers. The name value must not contain punctuation symbols apart from underscore'
 							/>
 						</div>
 					</div>

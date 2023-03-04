@@ -4,8 +4,10 @@ module.exports = {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {},
-		fontFamily: { sans: 'Open Sans', title: 'Merriweather' },
-
+		fontFamily: {
+			sans: ['Open Sans', 'sans-serif'],
+			title: ['Merriweather', 'serif'],
+		},
 		colors: {
 			primary: '#CACBD7',
 			teal: '#CAD9E3',

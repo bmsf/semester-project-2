@@ -114,7 +114,6 @@ const Create = ({ handleLogout, profile }) => {
 								value={endsAt}
 								onChange={onChange}
 								required
-								placeholder='"https://url.com/image.jpg"'
 								// pattern='^[a-zA-Z0-9]+(?:[,]+[a-zA-Z0-9]+){0,5}$'
 								title='The tags need to be separated with a comma'
 							/>
