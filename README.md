@@ -60,15 +60,19 @@ Folder strucutre
 
 ```bash
 SEMESTER-PROJECT-2/
+├── src/
+│   ├── components/
+│   │   └── layout
+│   │   └── Navbar
+│   ├── pages/
+│   ├── storage/
+│   ├── App.jsx/
+│   ├── index.css/
+│   ├── main.jsx/
 ├── README.md
 ├── node_modules/
 ├── package.json
-├── src/
-│   ├── components/
-│   ├── layout/
-│   ├── Navbar/
-│   │   ├── pages/
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   └── assets/
+├── tailwind.config.cjs
+├── vite.config.js
+├── .gitignore
 ```
