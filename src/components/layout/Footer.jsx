@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { CiTwitter, CiFacebook, CiInstagram } from 'react-icons/ci';
 
 import logo from '../../assets/logo-no-background.png';

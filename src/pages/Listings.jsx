@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
-import Navbar from '../components/Navbar/Navbar';
-import ListingCard from '../components/ListingCard';
-import { Footer } from '../components';
+import { Footer, ListingCard, Navbar } from '../components/index';
 
 const Listings = ({ handleLogout, profile, listings }) => {
 	const listingsPerPage = 16;

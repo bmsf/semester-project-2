@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 
 const ImageCarousel = ({ media }) => {

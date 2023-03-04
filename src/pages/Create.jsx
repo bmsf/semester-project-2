@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import createListing from '../api/createListing';
+import { createListing } from '../api/index';
 import { Footer, Navbar } from '../components/index';
 
 const Create = ({ handleLogout, profile }) => {

@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Button from '../Button';
 import LoggedInMenu from './LoggedInMenuDesktop';
-import logo from '../../assets/logo-no-background.png';
 import NavbarMobile from './NavbarMobile';
+import logo from '../../assets/logo-no-background.png';
 
 /**
  * A navigation bar component that displays a logo, links, and user authentication status.

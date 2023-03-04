@@ -10,7 +10,7 @@ import {
 	Footer,
 } from '../components/index';
 
-import FetchProduct from '../api/fetchProduct';
+import fetchProduct from '../api/fetchProduct';
 import bid from '../api/bid';
 import placeholder from '../assets/placeholder-image.png';
 import MakeBidModal from '../components/layout/MakeBidModal';
@@ -32,7 +32,7 @@ const Product = ({ profile, handleLogout }) => {
 
 	useEffect(() => {
 		const getProduct = async () => {
-			const data = await FetchProduct(id);
+			const data = await fetchProduct(id);
 			setProduct(data);
 			setLoading(false);
 		};
