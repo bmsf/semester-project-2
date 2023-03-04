@@ -21,7 +21,7 @@ import {
 	NotFound,
 } from './pages/index';
 
-import fetchProducts from './api/fetchProducts';
+import { fetchProducts } from './api/index';
 import * as storage from './storage/index.mjs';
 
 function App() {
