@@ -17,8 +17,10 @@ const Home = ({ handleLogout, profile, listings }) => {
 				/>
 				<Hero />
 			</div>
-			<LastChanceSection listings={listings} />
-			<TrendingSection listings={listings} />
+			<div className='mx-20'>
+				<LastChanceSection listings={listings} />
+				<TrendingSection listings={listings} />
+			</div>
 			<Footer />
 		</>
 	);

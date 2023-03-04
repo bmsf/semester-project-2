@@ -17,17 +17,15 @@ const ProductCard = ({ listing }) => {
 
 	const display = truncateDescription(description, 10);
 
-	console.log(display);
-
 	return (
 		<Link to={`/listings/${id}`}>
-			<div className='bg-white container rounded-lg overflow-hidden  hover:shadow-lg transition-shadow duration-300'>
-				<div className='innerContainer w-full h-full overflow-hidden border-gray border'>
+			<div className='bg-white overflow-hidden'>
+				<div className='w-full flex justify-center'>
 					{mediaSrc ? (
 						<img
 							src={mediaSrc}
 							alt={title}
-							className='w-full h-full object-cover'
+							className='w-full object-cover max-h-full max-w-full'
 						/>
 					) : (
 						<div className='w-full h-full bg-gray-200'></div>
