@@ -76,8 +76,8 @@ const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
 						<li className='flex items-center border-b pb-10 justify-between cursor-pointer'>
 							<div className='flex gap-6 '>
 								<BuildingLibraryIcon className='h-6 w-6' />
-								<Link to='/products' reloadDocument>
-									Market
+								<Link to='/listings' reloadDocument>
+									Listings
 								</Link>
 							</div>
 							<ChevronRightIcon className='h-6 w-6' />

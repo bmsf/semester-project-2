@@ -1,10 +1,14 @@
-BidCircle - Semester Projct
+# BidCircle - Semester Projct
+
 Welcome to my Vite React app! This app was built using Vite and React.
 
-Getting Started
+## Getting Started
+
 To get started, first clone this repository:
 
+```bash
 git clone https://github.com/bmsf/semester-project-2.git
+```
 
 Next, navigate to the project directory:
 
@@ -20,7 +24,8 @@ npm run dev
 
 The app should now be running on http://localhost:5173/.
 
-Available Scripts
+### Available Scripts
+
 In the project directory, you can run:
 
 npm run dev
@@ -36,15 +41,17 @@ The build is minified and the filenames include the hashes. Your app is ready to
 npm start
 Runs the app in the production mode. Before running this command, make sure to run npm run build to build the app for production.
 
-Folder Structure
-Copy code
+Folder strucutre
+
 SEMESTER-PROJECT-2/
-README.md
-node_modules/
-package.json
-src/
-/components
-/pages
-App.js
-index.js
-assets/
+├── README.md
+├── node_modules/
+├── package.json
+├── src/
+│ ├── components/
+│ ├── layout/
+├── Navbar/
+│ ├── pages/
+│ ├── App.js
+│ ├── index.js
+│ └── assets/

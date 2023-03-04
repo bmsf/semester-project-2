@@ -1,9 +1,9 @@
 export { default as Navbar } from './Navbar/Navbar.jsx';
 export { default as Button } from './Button.jsx';
-export { default as Footer } from './Footer.jsx';
-export { default as Hero } from './Hero.jsx';
+export { default as Footer } from './layout/Footer.jsx';
+export { default as Hero } from './layout/Hero.jsx';
 export { default as ImageCarousel } from './ImageCarousel.jsx';
 export { default as InfoBox } from './InfoBox.jsx';
-export { default as LastChanceSection } from './LastChanceSection.jsx';
+export { default as LastChanceSection } from './layout/LastChanceSection.jsx';
 export { default as ProductCard } from './ProductCard.jsx';
-export { default as TrendingSection } from './TrendingSection.jsx';
+export { default as TrendingSection } from './layout/TrendingSection.jsx';

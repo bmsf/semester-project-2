@@ -43,7 +43,7 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 						<Link to='/'>Home</Link>
 					</li>
 					<li>
-						<a href='#'>Discover</a>
+						<Link to='/listings'>Listings</Link>
 					</li>
 					<li>
 						<a href='#'>Market</a>

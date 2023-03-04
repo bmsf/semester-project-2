@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { AnimatePresence, motion as m } from 'framer-motion';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from 'react-router-dom';
+// import Loader from 'react-loader-spinner';
+// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 import './index.css';
 import {
@@ -10,8 +16,9 @@ import {
 	Profile,
 	Create,
 	Product,
-	Products,
+	Listings,
 	MyListings,
+	NotFound,
 } from './pages/index';
 
 import FetchProducts from './api/FetchProducts';
@@ -21,6 +28,8 @@ function App() {
 	const [token, setToken] = useState(storage.load('token'));
 
 	const [profile, setProfile] = useState(storage.load('profile'));
+
+	const [isLoading, setIsLoading] = useState(true);
 
 	const updateProfile = (newProfile) => {
 		setProfile(newProfile);
@@ -46,7 +55,6 @@ function App() {
 		<Router>
 			<Routes>
 				<Route
-					exact
 					path='/'
 					element={
 						<Home
@@ -56,8 +64,9 @@ function App() {
 						/>
 					}
 				/>
-				<Route path='/products'>
-					<Route index element={<Products />} />
+
+				<Route path='/listings'>
+					<Route index element={<Listings />} />
 					<Route
 						path=':id'
 						element={<Product handleLogout={handleLogout} profile={profile} />}
@@ -66,35 +75,48 @@ function App() {
 
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/register' element={<Register />} />
-				{profile && (
-					<>
-						<Route
-							exact
-							path='/profile'
-							element={
-								<Profile
-									handleLogout={handleLogout}
-									profile={profile}
-									token={token}
-									updateProfile={updateProfile}
-								/>
-							}
-						/>
 
-						<Route
-							exact
-							path='/create'
-							element={<Create handleLogout={handleLogout} profile={profile} />}
-						/>
-						<Route
-							exact
-							path='/mylistings'
-							element={
-								<MyListings handleLogout={handleLogout} profile={profile} />
-							}
-						/>
-					</>
-				)}
+				<Route
+					exact
+					path='/profile'
+					element={
+						token ? (
+							<Profile
+								handleLogout={handleLogout}
+								profile={profile}
+								token={token}
+								updateProfile={updateProfile}
+							/>
+						) : (
+							<Navigate to='/login' />
+						)
+					}
+				/>
+
+				<Route
+					exact
+					path='/create'
+					element={
+						token ? (
+							<Create handleLogout={handleLogout} profile={profile} />
+						) : (
+							<Navigate to='/login' />
+						)
+					}
+				/>
+				<Route
+					exact
+					path='/myListings'
+					element={
+						token ? (
+							<MyListings handleLogout={handleLogout} profile={profile} />
+						) : (
+							<Navigate to='/login' />
+						)
+					}
+				/>
+
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</Router>
 	);

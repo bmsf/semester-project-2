@@ -1,4 +1,4 @@
-import heroImage from '../assets/undraw_business_deal_re_up4u.svg';
+import heroImage from '../../assets/undraw_business_deal_re_up4u.svg';
 
 const Hero = () => {
 	return (
