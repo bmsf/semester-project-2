@@ -122,7 +122,7 @@ function App() {
 				}
 			/>
 
-			<Route exact path='*' element={<NotFound />} />
+			<Route exact={true} path='*' element={<NotFound />} />
 		</Routes>
 	);
 }
