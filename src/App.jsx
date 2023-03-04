@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-	BrowserRouter as Router,
-	Routes,
-	Route,
-	Navigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 // import Loader from 'react-loader-spinner';
 // import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
@@ -52,82 +47,83 @@ function App() {
 	}, []);
 
 	return (
-		<Router>
-			<Routes>
+		<Routes>
+			<Route
+				exact
+				path='/'
+				element={
+					<Home
+						handleLogout={handleLogout}
+						profile={profile}
+						listings={listings}
+					/>
+				}
+			/>
+
+			<Route exact path='/listings'>
 				<Route
-					path='/'
+					exact
+					index
 					element={
-						<Home
+						<Listings
 							handleLogout={handleLogout}
 							profile={profile}
 							listings={listings}
 						/>
 					}
 				/>
-
-				<Route path='/listings'>
-					<Route
-						index
-						element={
-							<Listings
-								handleLogout={handleLogout}
-								profile={profile}
-								listings={listings}
-							/>
-						}
-					/>
-					<Route
-						path=':id'
-						element={<Product handleLogout={handleLogout} profile={profile} />}
-					/>
-				</Route>
-
-				<Route exact path='/login' element={<Login />} />
-				<Route exact path='/register' element={<Register />} />
-
 				<Route
 					exact
-					path='/profile'
-					element={
-						token ? (
-							<Profile
-								handleLogout={handleLogout}
-								profile={profile}
-								token={token}
-								updateProfile={updateProfile}
-							/>
-						) : (
-							<Navigate to='/login' />
-						)
-					}
+					path=':id'
+					element={<Product handleLogout={handleLogout} profile={profile} />}
 				/>
+			</Route>
 
-				<Route
-					exact
-					path='/create'
-					element={
-						token ? (
-							<Create handleLogout={handleLogout} profile={profile} />
-						) : (
-							<Navigate to='/login' />
-						)
-					}
-				/>
-				<Route
-					exact
-					path='/myListings'
-					element={
-						token ? (
-							<MyListings handleLogout={handleLogout} profile={profile} />
-						) : (
-							<Navigate to='/login' />
-						)
-					}
-				/>
+			<Route exact path='/login' element={<Login />} />
+			<Route exact path='/register' element={<Register />} />
 
-				<Route path='*' element={<NotFound />} />
-			</Routes>
-		</Router>
+			<Route
+				exact
+				path='/profile'
+				element={
+					token ? (
+						<Profile
+							handleLogout={handleLogout}
+							profile={profile}
+							token={token}
+							updateProfile={updateProfile}
+						/>
+					) : (
+						<Navigate to='/login' />
+					)
+				}
+			/>
+
+			<Route
+				exact
+				path='/create'
+				element={
+					token ? (
+						<Create handleLogout={handleLogout} profile={profile} />
+					) : (
+						<Navigate to='/login' />
+					)
+				}
+			/>
+			<Route
+				exact
+				path='/mylistings'
+				element={
+					token ? (
+						<MyListings handleLogout={handleLogout} profile={profile} />
+					) : (
+						<Navigate to='/login' />
+					)
+				}
+			/>
+
+			<Route exact path='*' element={<NotFound />} />
+		</Routes>
 	);
 }
 
