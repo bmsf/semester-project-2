@@ -15,14 +15,14 @@ import bid from '../api/bid';
 import placeholder from '../assets/placeholder-image.png';
 import MakeBidModal from '../components/layout/MakeBidModal';
 
-const Product = ({ profile, handleLogout }) => {
+const Product = ({ profile, handleLogout, token }) => {
 	const { id } = useParams();
 
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [openModal, setOpenModal] = useState(false);
 	const [formData, setFormData] = useState({
-		amount: '',
+		amount: 0,
 	});
 
 	const handleClick = () => {
@@ -75,12 +75,16 @@ const Product = ({ profile, handleLogout }) => {
 
 		if (!newBidAmount || newBidAmount <= highestBid.amount) {
 			alert(
-				'Please enter a valid bid amount higher than the current highest bid'
+				`Please enter a valid bid amount higher than the current highest bid. Current highest: ${highestBid}`
 			);
 			return;
 		}
 
-		bid(id, formData);
+		const newBid = { amount: newBidAmount };
+
+		bid(id, newBid, token);
+
+		
 	};
 
 	return (

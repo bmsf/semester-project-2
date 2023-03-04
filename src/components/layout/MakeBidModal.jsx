@@ -42,7 +42,7 @@ const MakeBidModal = ({
 												highestBid ? highestBid.amount : 'No bids'
 											}`}
 											onChange={onChange}
-											value={formData.amount}
+											value={formData.amount === 0 ? '' : formData.amount}
 											className='w-full border border-black rounded-lg p-2.5 text-black'
 											title='The bid needs to be a number without space or any signs'
 										/>

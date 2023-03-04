@@ -31,16 +31,21 @@ const createListing = async (listingData) => {
 			method: method,
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `bearer ${token}`,
+				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify(listingData),
 		});
 
 		if (response.ok) {
+			alert(
+				`Auction listing created successfully with the title ${listingData.title}`
+			);
 			window.location.reload();
 		}
 		if (!response.ok) {
-			alert("The listing didn't get correctly created, please try again");
+			alert(
+				"The listing didn't get correctly created, please try again. It might be that the Image gallery provided was not fully formed URLs that links to live and publicly accessible images"
+			);
 		}
 	} catch (error) {
 		console.log(error);

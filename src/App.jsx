@@ -10,7 +10,7 @@ import {
 	Register,
 	Profile,
 	Create,
-	Product,
+	Listing,
 	Listings,
 	MyListings,
 	NotFound,
@@ -75,7 +75,13 @@ function App() {
 				<Route
 					exact
 					path=':id'
-					element={<Product handleLogout={handleLogout} profile={profile} />}
+					element={
+						<Listing
+							handleLogout={handleLogout}
+							profile={profile}
+							token={token}
+						/>
+					}
 				/>
 			</Route>
 

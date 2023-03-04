@@ -12,22 +12,23 @@ import { API_AUCTION_URL } from './constants';
  * Bid("abc123", { amount: 100 });
  */
 
-const bid = async (id, formData) => {
-	const action = `/listing/${id}/bids`;
+const bid = async (id, newBid, token) => {
+	const action = `/listings/${id}/bids`;
 	const method = 'post';
 	const bidURL = API_AUCTION_URL + action;
+
 	try {
 		const response = await fetch(bidURL, {
 			method: method,
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `bearer ${token}`,
+				Authorization: `Bearer ${token}`,
 			},
-			body: JSON.stringify(formData),
+			body: JSON.stringify(newBid),
 		});
 		if (response.ok) {
+			alert(`Bid registered for ${newBid} coins`);
 			window.location.reload(true);
-			alert('Bid registered for 100 coins');
 		}
 		if (!response.ok) {
 			alert("The bid didn't get registrated. Please try again");
