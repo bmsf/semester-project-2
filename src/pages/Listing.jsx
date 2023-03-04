@@ -79,6 +79,16 @@ const Product = ({ profile, handleLogout }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
+		const highestBid = findHighestBid(bids);
+		const newBidAmount = parseFloat(formData.amount);
+
+		if (!newBidAmount || newBidAmount <= highestBid.amount) {
+			alert(
+				'Please enter a valid bid amount higher than the current highest bid'
+			);
+			return;
+		}
+
 		bid(id, formData);
 	};
 
@@ -95,7 +105,7 @@ const Product = ({ profile, handleLogout }) => {
 						</div>
 					)}
 				</div>
-				<div className='flex flex-col  border rounded-md m-10 lg:m-0 mx-auto border-gray w-3/4 lg:w-3/5 xl:w-3/5'>
+				<div className='flex flex-col  border rounded-md m-10 lg:m-0 mx-auto border-gray w-full lg:w-3/5 xl:w-3/5'>
 					<div className='border-b border-gray w-full flex flex-between p-8'>
 						<h1 className='text-xl font-bold'>{title}</h1>
 					</div>
@@ -134,7 +144,7 @@ const Product = ({ profile, handleLogout }) => {
 						)}
 					</div>
 				</div>
-				<div className='bg-white w-full h-20 px-6 py-2 flex justify-between items-center lg:hidden text-gray-font fixed bottom-0 shadow-lg z-40 border-t border-gray-99'>
+				<div className='bg-white w-full h-20 px-6 py-2 flex justify-between items-center lg:hidden text-gray-font fixed bottom-0 shadow-lg z-10 border-t border-gray-99'>
 					<div className='flex flex-col '>
 						<p>
 							Current highest bid:{' '}
@@ -164,24 +174,30 @@ const Product = ({ profile, handleLogout }) => {
 									id='backdrop'
 									className='overflow-y-hidden backdrop-blur-md bg-[#BCBCBF] overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-screen flex items-center justify-center w-screen'
 								>
-									<div className='bg-white flex flex-col items-center p-12 h-full md:h-1/3  w-full md:w-2/3 lg:w-2/4 xl:w-1/3 rounded'>
+									<div className='bg-white flex flex-col items-center p-12 justify-center h-full md:h-1/3  w-full md:w-2/3 lg:w-2/4 xl:w-1/3 rounded'>
 										<div className='w-full flex flex-col gap-20 md:gap-10'>
 											<div className='flex justify-between w-full'>
 												<h2 className='self-center'>Make a bid</h2>
-												<XMarkIcon
-													className='w-6 h-6 cursor-pointer'
-													onClick={() => setOpenModal(!openModal)}
-												/>
+
+												<div className='hover:bg-gray rounded-full p-1'>
+													<XMarkIcon
+														className='h-8 w-8 hover:bg-gray rounded-full cursor-pointer'
+														onClick={() => setOpenModal(!openModal)}
+													/>
+												</div>
 											</div>
 											<form className='flex flex-col gap-2' onSubmit={onSubmit}>
 												<div className='relative '>
 													<input
+														type='number'
 														id='amount'
+														placeholder={`Current highest bid: ${
+															highestBid ? highestBid.amount : 'No bids'
+														}`}
 														onChange={onChange}
 														value={formData.amount}
 														className='w-full border border-black rounded-lg p-2.5 text-black'
-														placeholder='"https://url.com/image.jpg"'
-														title='The links need to be separated with a comma and without spaces'
+														title='The bid needs to be a number without space or any signs'
 													/>
 												</div>
 
@@ -200,7 +216,9 @@ const Product = ({ profile, handleLogout }) => {
 					</AnimatePresence>
 				</div>
 			</div>
-			<Footer />
+			<div className='mb-20 md:m-0'>
+				<Footer />
+			</div>
 		</>
 	);
 };

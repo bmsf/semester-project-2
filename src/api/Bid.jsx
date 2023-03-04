@@ -27,13 +27,14 @@ const bid = async (id, formData) => {
 		});
 		if (response.ok) {
 			window.location.reload(true);
+			alert('Bid registered for 100 coins');
 		}
 		if (!response.ok) {
-			alert("The image didn't get updated, please try again");
+			alert("The bid didn't get registrated. Please try again");
 			console.log(response);
 		}
 	} catch (error) {
-		alert("The image didn't get updated, please try again");
+		alert("The bid didn't get registrated. Please try again");
 		console.log(error);
 	}
 };

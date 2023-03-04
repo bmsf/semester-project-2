@@ -20,6 +20,13 @@ html {
 	width: 250px;
 	height: 40vh;
 	margin-bottom: 1rem;
+	object-fit: cover;
+}
+
+@media only screen and (max-width: 600px) {
+	.grid img {
+		width: 30rem;
+	}
 }
 
 .container {

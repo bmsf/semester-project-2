@@ -35,7 +35,7 @@ const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
 				animate={{ x: '0%' }}
 				transition={{ duration: 0.75 }}
 				exit={{ x: '150%' }}
-				className='fixed bottom-0 w-full h-screen right-0 top-0 z-40'
+				className='fixed bottom-0 w-full h-screen right-0 top-0 z-20'
 			>
 				<div className='bg-primary w-full h-full flex flex-col text-lg'>
 					<div className='flex flex-col items-center mt-16'>
@@ -43,12 +43,12 @@ const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
 							<>
 								<div>
 									{!avatar ? (
-										<UserCircleIcon className='h-16 w-16' />
+										<UserCircleIcon className='h-12 w-12' />
 									) : (
 										<img
 											src={avatar}
 											alt='User avatar'
-											className='h-16 w-16 rounded-full'
+											className='h-12 w-12 rounded-full'
 										/>
 									)}
 								</div>
@@ -58,11 +58,11 @@ const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
 								</div>
 							</>
 						) : (
-							<UserCircleIcon className='h-20 w-20' />
+							<UserCircleIcon className='h-12 w-12' />
 						)}
 					</div>
 
-					<ul className='flex flex-col gap-10 m-6 pb-10'>
+					<ul className='flex flex-col gap-6 m-6 pb-10'>
 						<li className='flex items-center justify-between cursor-pointer'>
 							<div className='flex gap-6'>
 								<HomeIcon className='h-6 w-6' />

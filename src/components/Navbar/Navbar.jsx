@@ -76,7 +76,7 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 					</div>
 				)}
 
-				<div className='absolute z-50 right-6 lg:left-6 lg:hidden'>
+				<div className='absolute z-30 right-6 lg:left-6 lg:hidden'>
 					{!openMenu ? (
 						<m.div
 							className='flex gap-2 cursor-pointer'
@@ -84,7 +84,9 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.9 }}
 						>
-							<Bars3Icon className='h-8 w-8' />
+							<div className='hover:bg-gray rounded-full p-1'>
+								<Bars3Icon className='h-8 w-8' />
+							</div>
 						</m.div>
 					) : (
 						<m.div
@@ -93,7 +95,9 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.9 }}
 						>
-							<XMarkIcon className='h-8 w-8' />
+							<div className='hover:bg-gray rounded-full p-1'>
+								<XMarkIcon className='h-8 w-8 hover:bg-gray rounded-full' />
+							</div>
 						</m.div>
 					)}
 				</div>
