@@ -52,7 +52,7 @@ const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 								/>
 							)}
 						</div>
-						<div className='text-center md:text-left'>
+						<div className='text-center '>
 							<p className='capitalize text-3xl'>{name}</p>
 							<p className='pb-3 font-thin text-md'>{email}</p>
 						</div>

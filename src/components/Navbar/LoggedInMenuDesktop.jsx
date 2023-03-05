@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import {
 	UserCircleIcon,
@@ -61,7 +61,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 								exit={{ opacity: 0 }}
 								transition={{ duration: 0.2 }}
 								onClick={handleBackdropClick}
-								className='absolute z-50 top-20 right-0 bg-black text-white rounded-lg px-4 py-6  w-2/3'
+								className='absolute z-50 top-20 right-0 bg-black text-white rounded-lg px-4 py-6  w-3/3'
 							>
 								<div className='left-[50%] absolute -top-3 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-4 h-4 bg-black -z-10'></div>
 

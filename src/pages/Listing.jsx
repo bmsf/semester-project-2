@@ -15,7 +15,7 @@ import bid from '../api/bid';
 import placeholder from '../assets/placeholder-image.png';
 import MakeBidModal from '../components/layout/MakeBidModal';
 
-const Product = ({ profile, handleLogout, token }) => {
+const Product = ({ profile, handleLogout, token, updateProfile }) => {
 	const { id } = useParams();
 
 	const [product, setProduct] = useState(null);
@@ -82,9 +82,7 @@ const Product = ({ profile, handleLogout, token }) => {
 
 		const newBid = { amount: newBidAmount };
 
-		bid(id, newBid, token);
-
-		
+		bid(id, newBid, token, profile, updateProfile);
 	};
 
 	return (

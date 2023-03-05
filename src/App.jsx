@@ -26,9 +26,12 @@ function App() {
 
 	const [isLoading, setIsLoading] = useState(true);
 
-	const updateProfile = (newProfile) => {
-		setProfile(newProfile);
-		storage.save('profile', newProfile);
+	const updateProfile = (newProfile, credits = 0) => {
+		setProfile({ ...newProfile, credits: newProfile.credits + credits });
+		storage.save('profile', {
+			...newProfile,
+			credits: newProfile.credits + credits,
+		});
 		storage.save('avatar', newProfile.avatar);
 	};
 
@@ -80,6 +83,7 @@ function App() {
 							handleLogout={handleLogout}
 							profile={profile}
 							token={token}
+							updateProfile={updateProfile}
 						/>
 					}
 				/>

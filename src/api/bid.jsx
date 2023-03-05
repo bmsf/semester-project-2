@@ -12,7 +12,7 @@ import { API_AUCTION_URL } from './constants';
  * Bid("abc123", { amount: 100 });
  */
 
-const bid = async (id, newBid, token) => {
+const bid = async (id, newBid, token, profile, updateProfile) => {
 	const action = `/listings/${id}/bids`;
 	const method = 'post';
 	const bidURL = API_AUCTION_URL + action;
@@ -27,7 +27,12 @@ const bid = async (id, newBid, token) => {
 			body: JSON.stringify(newBid),
 		});
 		if (response.ok) {
-			alert(`Bid registered for ${newBid} coins`);
+			alert(`Bid registered!`);
+			const updatedProfile = {
+				...profile,
+				coins: profile.credits - newBid.amount,
+			};
+			updateProfile(updatedProfile, -newBid.amount);
 			window.location.reload(true);
 		}
 		if (!response.ok) {
