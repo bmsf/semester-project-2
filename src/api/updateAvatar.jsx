@@ -1,22 +1,26 @@
-import { API_AUCTION_URL } from './Constants';
+import { API_AUCTION_URL } from './constants';
 
 /**
- * @description
  * Updates the avatar of a user profile.
+ *
+ * @async
+ * @function updateAvatar
+ *
  * @param {string} name - The name of the user profile.
  * @param {object} formData - The form data containing the updated avatar image.
  * @param {function} updateProfile - The function to update the user profile with the new avatar.
  * @param {string} token - The user authentication token.
  * @param {object} profile - The user profile object.
  *
+ * @throws {Error} - If an error occurs while updating the avatar, an error is thrown with a message "The image didn't get updated, please try again".
+ *
  * @returns {Promise<void>} - A Promise that resolves with no value when the avatar is successfully updated.
  *
- * @throws {Error} - If an error occurs while updating the avatar.
  * @example
- * UpdateAvatar(name, formData, updateProfile, token, profile)
+ * updateAvatar('john_doe', formData, updateProfile, token, profile);
  */
 
-const UpdateAvatar = async (name, formData, updateProfile, token, profile) => {
+const updateAvatar = async (name, formData, updateProfile, token, profile) => {
 	const action = `/profiles/${name}/media`;
 	const method = 'put';
 	const updateMediaURL = API_AUCTION_URL + action;
@@ -40,13 +44,13 @@ const UpdateAvatar = async (name, formData, updateProfile, token, profile) => {
 			window.location.reload(true);
 		}
 		if (!response.ok) {
-			// alert("The image didn't get updated, please try again");
+			alert("The image didn't get updated, please try again");
 			console.log(response);
 		}
 	} catch (error) {
-		// alert("The image didn't get updated, please try again");
+		alert("The image didn't get updated, please try again");
 		console.log(error);
 	}
 };
 
-export default UpdateAvatar;
+export default updateAvatar;

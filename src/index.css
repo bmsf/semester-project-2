@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+	font-family: 'Merriweather', serif;
+}
+
 html {
 	overflow-x: hidden;
 }
@@ -9,23 +23,33 @@ html {
 .grid {
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-column-gap: 5rem;
-	grid-row-gap: 2rem;
+	grid-row-gap: 10rem;
 	justify-items: center;
 	padding-top: 50px;
-	width: 80%;
+	width: 100%;
+	display: grid;
+}
+
+.grid img {
+	width: 250px;
+	height: 40vh;
+	margin-bottom: 1rem;
+	object-fit: cover;
+}
+
+.modal {
+	min-height: 350px;
 }
 
 .container {
-	max-height: 500px;
-	width: 294px;
 	display: flex;
-
 	flex-direction: column;
 	/* padding: 50px; */
 }
 
 .innerContainer {
-	height: 300px;
+	height: 20rem;
+	width: 100%;
 	object-fit: contain;
 }
 
@@ -35,22 +59,30 @@ html {
 
 .productImg {
 	min-height: 390px;
-	width: 294px;
+	max-width: 300px;
 	object-fit: cover;
 }
 
-li {
-	border-bottom-width: 0;
-	background-image: linear-gradient(transparent, transparent),
-		linear-gradient(black, black);
-	background-size: 0 1px;
-	background-position: 0 100%;
-	background-repeat: no-repeat;
-	transition: background-size 0.5s ease-in-out;
-	padding-bottom: 2px;
+@media only screen and (min-width: 768px) {
+	li {
+		border-bottom-width: 0;
+		background-image: linear-gradient(transparent, transparent),
+			linear-gradient(black, black);
+		background-size: 0 1px;
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size 0.5s ease-in-out;
+		padding-bottom: 2px;
+	}
+
+	li:hover {
+		background-size: 100% 1px;
+		background-position: 0 100%;
+	}
 }
 
-li:hover {
-	background-size: 100% 1px;
-	background-position: 0 100%;
+@media only screen and (max-width: 600px) {
+	.grid img {
+		width: 30rem;
+	}
 }

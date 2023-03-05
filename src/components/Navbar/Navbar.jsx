@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import Button from '../Button';
 import LoggedInMenu from './LoggedInMenuDesktop';
-import logo from '../../assets/logo-no-background.png';
 import NavbarMobile from './NavbarMobile';
+import logo from '../../assets/logo-no-background.png';
 
 /**
  * A navigation bar component that displays a logo, links, and user authentication status.
@@ -29,7 +29,7 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 	return (
 		<>
 			<nav
-				className='w-full p-5 flex justify-between items-center lg:p-10 '
+				className='w-full p-5 flex justify-between items-center lg:p-6'
 				style={{ backgroundColor: backgroundColor }}
 			>
 				<div className='w-20'>
@@ -43,7 +43,7 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 						<Link to='/'>Home</Link>
 					</li>
 					<li>
-						<a href='#'>Discover</a>
+						<Link to='/listings'>Listings</Link>
 					</li>
 					<li>
 						<a href='#'>Market</a>
@@ -76,7 +76,7 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 					</div>
 				)}
 
-				<div className='absolute z-50 right-6 lg:left-6 lg:hidden'>
+				<div className='absolute z-30 right-6 lg:left-6 lg:hidden'>
 					{!openMenu ? (
 						<m.div
 							className='flex gap-2 cursor-pointer'
@@ -84,7 +84,9 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.9 }}
 						>
-							<Bars3Icon className='h-8 w-8' />
+							<div className='hover:bg-gray rounded-full p-1'>
+								<Bars3Icon className='h-8 w-8' />
+							</div>
 						</m.div>
 					) : (
 						<m.div
@@ -93,7 +95,9 @@ const Navbar = ({ profile, backgroundColor, handleLogout }) => {
 							whileHover={{ scale: 1.1 }}
 							whileTap={{ scale: 0.9 }}
 						>
-							<XMarkIcon className='h-8 w-8' />
+							<div className='hover:bg-gray rounded-full p-1'>
+								<XMarkIcon className='h-8 w-8 hover:bg-gray rounded-full' />
+							</div>
 						</m.div>
 					)}
 				</div>

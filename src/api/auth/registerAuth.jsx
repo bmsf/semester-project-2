@@ -1,21 +1,19 @@
-import { API_AUCTION_URL } from '../Constants';
+import { API_AUCTION_URL } from '../constants';
 const action = '/auth/register';
 const method = 'post';
 
 /**
- * @description
  * Registers a new user by sending a POST request with the registration form data to the API.
  * @async
- * @function RegisterAuth
+ * @function
  * @param {Object} formData - An object containing the registration form data.
  * @throws {Error} If there was an error with the API call.
  * @returns {Promise<void>} A promise that resolves with no value.
- * @param {*} formData
  * @example
- * RegisterAuth(formData)
+ * registerAuth(formData);
  */
 
-const RegisterAuth = async (formData) => {
+const registerAuth = async (formData) => {
 	const registerURL = API_AUCTION_URL + action;
 
 	const body = JSON.stringify(formData);
@@ -29,13 +27,15 @@ const RegisterAuth = async (formData) => {
 			body,
 		});
 		if (response.ok) {
-			return (await response.json()) && window.location.replace('/');
+			return (await response.json()) && window.location.replace('/login');
 		} else if (!response.ok) {
 			alert('Something went wrong, try again');
+			console.log(response);
 		}
 	} catch (error) {
 		alert('Something went wrong, try again');
+		console.log(response);
 	}
 };
 
-export default RegisterAuth;
+export default registerAuth;

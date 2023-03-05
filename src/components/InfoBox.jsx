@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
+import calculateTimeRemaining from '../utils/calculateTimeRemaining';
 
-const InfoBox = ({ title, children }) => {
+/**
+ * A component that displays information with an expandable/collapsible container.
+ * @param {Object} props - The props object.
+ * @param {string} props.title - The title of the information box.
+ * @param {React.ReactNode} props.children - The children to render inside the container.
+ * @param {string} props.endsAt - The date/time string when the auction ends (if applicable).
+ * @returns {JSX.Element} - The JSX element representing the InfoBox component.
+ */
+
+const InfoBox = ({ title, children, endsAt }) => {
 	const [expanded, setExpanded] = useState(false);
-
 
 	const arrowVariants = {
 		expanded: { rotate: 90 },
@@ -13,8 +22,20 @@ const InfoBox = ({ title, children }) => {
 
 	const containerVariants = {
 		collapsed: { height: '3rem' },
-		expanded: { height: '10rem', display: 'flex', flexDirection: 'column' },
+		expanded: {
+			height: '15rem',
+			display: 'flex',
+			flexDirection: 'column',
+			overflow: 'visible',
+		},
 	};
+
+	if (title === 'Time left') {
+		const { remainingDays, remainingHours, remainingMinutes } =
+			calculateTimeRemaining(endsAt);
+
+		children = `${remainingDays} days, ${remainingHours} hours, ${remainingMinutes} minutes`;
+	}
 
 	return (
 		<m.div
@@ -47,8 +68,8 @@ const InfoBox = ({ title, children }) => {
 			</div>
 
 			{expanded && (
-				<div className=''>
-					<p>{children}</p>
+				<div className='mb-10 mx-auto'>
+					<p className='text-sm'>{children}</p>
 				</div>
 			)}
 		</m.div>

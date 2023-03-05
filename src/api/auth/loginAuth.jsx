@@ -1,4 +1,4 @@
-import { API_AUCTION_URL } from '../Constants';
+import { API_AUCTION_URL } from '../constants';
 import * as storage from '../../storage/index.mjs';
 
 const action = '/auth/login';
@@ -6,18 +6,18 @@ const method = 'post';
 
 /**
  * Logs in the user with the provided credentials by sending a POST request to the API login URL with the form data.
-@async
-@function
-@param {object} formData - The form data containing the user's email and password.
-@param {string} formData.email - The user's email.
-@param {string} formData.password - The user's password.
-@returns {void}
-@throws {Error} If an error occurs during the login process.
-@example
-LoginAuth(formData)
-*/
+ * @async
+ * @function
+ * @param {object} formData - The form data containing the user's email and password.
+ * @param {string} formData.email - The user's email.
+ * @param {string} formData.password - The user's password.
+ * @returns {void}
+ * @throws {Error} If an error occurs during the login process.
+ * @example
+ * LoginAuth(formData)
+ */
 
-const LoginAuth = async (formData) => {
+const loginAuth = async (formData) => {
 	const loginURL = API_AUCTION_URL + action;
 	const body = JSON.stringify(formData);
 	try {
@@ -45,4 +45,4 @@ const LoginAuth = async (formData) => {
 	}
 };
 
-export default LoginAuth;
+export default loginAuth;

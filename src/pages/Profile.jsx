@@ -2,18 +2,27 @@ import { useState } from 'react';
 import { UserCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion as m } from 'framer-motion';
 
-import { Navbar, Button } from '../components/index';
-import UpdateAvatar from '../api/UpdateAvatar';
+import { Navbar, Button, Footer } from '../components/index';
+import updateAvatar from '../api/updateAvatar';
+
+/**
+
+A component that renders the user's profile and allows them to edit their avatar.
+@param {Object} props - The component props.
+@param {Function} props.handleLogout - The function to handle logout.
+@param {Object} props.profile - The user profile object.
+@param {string} props.token - The user authentication token.
+@param {Function} props.updateProfile - The function to update the user profile.
+@returns {JSX.Element} - The JSX code for the Profile component.
+*/
 
 const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 	const [openModal, setOpenModal] = useState(false);
 
-	const { name, email, credits, avatar } = profile || {};
+	const { name, email, avatar } = profile || {};
 
 	const handleBackdropClick = (e) => {
-		// Check if the target element is the backdrop (i.e., has the 'backdrop' id)
 		if (e.target.id === 'backdrop') {
-			// Close the menu
 			setOpenModal(false);
 		}
 	};
@@ -32,7 +41,7 @@ const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		UpdateAvatar(name, formData, updateProfile, token, profile);
+		updateAvatar(name, formData, updateProfile, token, profile);
 	};
 
 	return (
@@ -52,7 +61,7 @@ const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 								/>
 							)}
 						</div>
-						<div className='text-center md:text-left'>
+						<div className='text-center '>
 							<p className='capitalize text-3xl'>{name}</p>
 							<p className='pb-3 font-thin text-md'>{email}</p>
 						</div>
@@ -111,6 +120,7 @@ const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 					)}
 				</AnimatePresence>
 			</main>
+			<Footer />
 		</>
 	);
 };

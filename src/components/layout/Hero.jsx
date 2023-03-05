@@ -1,4 +1,10 @@
-import heroImage from '../assets/undraw_business_deal_re_up4u.svg';
+import heroImage from '../../assets/undraw_business_deal_re_up4u.svg';
+
+/**
+ * Displays the Hero section of the page.
+ *
+ * @returns {JSX.Element} The Hero component.
+ */
 
 const Hero = () => {
 	return (

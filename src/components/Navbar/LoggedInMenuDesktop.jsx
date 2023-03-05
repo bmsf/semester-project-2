@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion as m } from 'framer-motion';
 import {
 	UserCircleIcon,
@@ -30,7 +30,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 	};
 
 	return (
-		<m.div className='hidden lg:flex items-center border  rounded-xl relative'>
+		<m.div className='hidden lg:flex items-center border rounded relative'>
 			<div className='flex gap-1 p-3 border-r'>
 				<p className=''>{credits}</p>
 				<CircleStackIcon className='h-6 w-6' />
@@ -44,10 +44,10 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 					<img
 						src={avatar}
 						alt='User avatar'
-						className='h-8 w-8 rounded-full'
+						className='h-8 w-8 rounded-full object-cover'
 					/>
 				) : (
-					<UserCircleIcon className='h-10 w-10' />
+					<UserCircleIcon className='h-8 w-8' />
 				)}
 				<p>{name}</p>
 				<ChevronDownIcon className='h-4 w-4' />
@@ -61,7 +61,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 								exit={{ opacity: 0 }}
 								transition={{ duration: 0.2 }}
 								onClick={handleBackdropClick}
-								className='absolute z-50 top-20 right-0 bg-black text-white rounded-lg px-4 py-6  w-2/3'
+								className='absolute z-50 top-20 right-0 bg-black text-white rounded-lg px-4 py-6  w-3/3'
 							>
 								<div className='left-[50%] absolute -top-3 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-4 h-4 bg-black -z-10'></div>
 
@@ -77,7 +77,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 									<li className='flex items-center justify-between cursor-pointer '>
 										<div className='flex gap-1'>
 											<PlusCircleIcon className='h-6 w-6' />
-											<Link to='/profile' reloadDocument>
+											<Link to='/create' reloadDocument>
 												Create Listing
 											</Link>
 										</div>
