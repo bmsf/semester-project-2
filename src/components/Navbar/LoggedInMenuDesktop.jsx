@@ -44,7 +44,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 					<img
 						src={avatar}
 						alt='User avatar'
-						className='h-8 w-8 rounded-full'
+						className='h-8 w-8 rounded-full object-cover'
 					/>
 				) : (
 					<UserCircleIcon className='h-8 w-8' />

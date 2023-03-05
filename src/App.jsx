@@ -48,6 +48,15 @@ function App() {
 
 	useEffect(() => {
 		fetchProducts(setListings, setIsLoading);
+
+		const delay = 3000; // 3 seconds
+		const timeoutId = setTimeout(() => {
+			setIsLoading(false);
+		}, delay);
+
+		return () => {
+			clearTimeout(timeoutId);
+		};
 	}, []);
 
 	return (

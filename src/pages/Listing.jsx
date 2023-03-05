@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { BallTriangle } from 'react-loader-spinner';
 
 import {
 	ImageCarousel,
@@ -40,7 +41,20 @@ const Product = ({ profile, handleLogout, token, updateProfile }) => {
 	}, [id]);
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return (
+			<div className='flex justify-center items-center h-screen'>
+				<BallTriangle
+					height={100}
+					width={100}
+					radius={5}
+					color='#CACBD7'
+					ariaLabel='ball-triangle-loading'
+					wrapperClass={{}}
+					wrapperStyle=''
+					visible={true}
+				/>
+			</div>
+		);
 	}
 
 	const { title, description, endsAt, media, seller, bids } = product;
