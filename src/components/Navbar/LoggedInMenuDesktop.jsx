@@ -47,7 +47,7 @@ const LoggedInMenu = ({ avatar, name, handleLogout, credits }) => {
 						className='h-8 w-8 rounded-full'
 					/>
 				) : (
-					<UserCircleIcon className='h-10 w-10' />
+					<UserCircleIcon className='h-8 w-8' />
 				)}
 				<p>{name}</p>
 				<ChevronDownIcon className='h-4 w-4' />

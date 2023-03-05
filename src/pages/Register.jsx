@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 import Button from '../components/Button';
-import RegisterAuth from '../api/auth/RegisterAuth';
+import registerAuth from '../api/auth/registerAuth';
 import logo from '../assets/logo-no-background.png';
 
 function Register() {
@@ -33,7 +33,7 @@ function Register() {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		RegisterAuth(formData);
+		registerAuth(formData);
 	};
 
 	return (
@@ -63,7 +63,7 @@ function Register() {
 								required
 								pattern='^[\w]+$'
 								maxLength='20'
-								placeholder='Jon Doe'
+								placeholder='jon_doe'
 								title='Name can maximum contain 20 letters and no numbers. The name value must not contain punctuation symbols apart from underscore'
 							/>
 						</div>

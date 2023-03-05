@@ -17,7 +17,7 @@ const method = 'post';
 LoginAuth(formData)
 */
 
-const LoginAuth = async (formData) => {
+const loginAuth = async (formData) => {
 	const loginURL = API_AUCTION_URL + action;
 	const body = JSON.stringify(formData);
 	try {
@@ -45,4 +45,4 @@ const LoginAuth = async (formData) => {
 	}
 };
 
-export default LoginAuth;
+export default loginAuth;

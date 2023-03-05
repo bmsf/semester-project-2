@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { EyeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline';
 
 import { Button } from '../components/index';
-import LoginAuth from '../api/auth/LoginAuth';
+import loginAuth from '../api/auth/loginAuth';
 import logo from '../assets/logo-no-background.png';
 
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		LoginAuth(formData);
+		loginAuth(formData);
 	};
 
 	return (
