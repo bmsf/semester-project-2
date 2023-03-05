@@ -40,7 +40,7 @@ const updateAvatar = async (name, formData, updateProfile, token, profile) => {
 			window.location.reload(true);
 		}
 		if (!response.ok) {
-			// alert("The image didn't get updated, please try again");
+			alert("The image didn't get updated, please try again");
 			console.log(response);
 		}
 	} catch (error) {

@@ -24,6 +24,7 @@ const method = 'post';
 
 const createListing = async (listingData) => {
 	try {
+		console.log(listingData)
 		const token = storage.load('token');
 		const createListingURL = API_AUCTION_URL + action;
 
@@ -37,9 +38,7 @@ const createListing = async (listingData) => {
 		});
 
 		if (response.ok) {
-			alert(
-				`Auction listing created successfully with the title ${listingData.title}`
-			);
+			alert(`Auction listing created successfully!`);
 			window.location.reload();
 		}
 		if (!response.ok) {
