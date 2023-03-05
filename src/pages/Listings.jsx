@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { Footer, ListingCard, Navbar } from '../components/index';
 
 const Listings = ({ handleLogout, profile, listings }) => {
-	const listingsPerPage = 8;
+	const listingsPerPage = 16;
 	const [currentPage, setCurrentPage] = useState(1);
 	const totalPages = Math.ceil(listings.length / listingsPerPage);
 	const startIndex = (currentPage - 1) * listingsPerPage;
@@ -61,7 +61,7 @@ const Listings = ({ handleLogout, profile, listings }) => {
 							<button
 								key={page}
 								onClick={() => handlePageClick(page)}
-								className={`mx-2 py-1 px-3 rounded-full ${
+								className={`mx-1 md:mx-2 py-1 px-3 rounded-full ${
 									currentPage === page ? ' font-bold border' : ''
 								}`}
 							>
