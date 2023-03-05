@@ -12,7 +12,7 @@ module.exports = {
 			primary: '#CACBD7',
 			teal: '#CAD9E3',
 			gray: '#DDE4EB',
-			black: '#000000',
+			black: '#28282B',
 			white: '#FFFFFF',
 			success: '#BFD6C5',
 			decline: '#D6B4B4',

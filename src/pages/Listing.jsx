@@ -139,7 +139,7 @@ const Product = ({ profile, handleLogout, token, updateProfile }) => {
 								<Button
 									children='Make bid'
 									textColor='White'
-									backgroundColor='black'
+									backgroundColor='#28282B'
 									handleClick={handleClick}
 								/>
 								<MakeBidModal
@@ -175,7 +175,7 @@ const Product = ({ profile, handleLogout, token, updateProfile }) => {
 						<Button
 							children='Make bid'
 							textColor='White'
-							backgroundColor='black'
+							backgroundColor='#28282B'
 							handleClick={handleClick}
 						/>
 					)}

@@ -131,7 +131,7 @@ const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
 								<Link to='/login' reloadDocument>
 									<Button
 										children='Login'
-										backgroundColor='black'
+										backgroundColor='#28282B'
 										textColor='white'
 									/>
 								</Link>

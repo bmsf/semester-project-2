@@ -33,13 +33,13 @@ const ImageCarousel = ({ media }) => {
 			</div>
 			<div className='absolute top-0 bottom-0 left-0 w-full flex items-center justify-between'>
 				<div
-					className='cursor-pointer px-2 py-2 rounded-full bg-[#737373] hover:bg-opacity-75'
+					className='cursor-pointer px-2 py-2 rounded-full bg-[#28282B] hover:bg-opacity-75'
 					onClick={handlePrevClick}
 				>
 					<ChevronLeftIcon className='h-8 w-8 text-white' />
 				</div>
 				<button
-					className='cursor-pointer px-2 py-2 rounded-full bg-[#737373] hover:bg-opacity-75'
+					className='cursor-pointer px-2 py-2 rounded-full bg-[#28282B] hover:bg-opacity-75'
 					onClick={handleNextClick}
 				>
 					<ChevronRightIcon className='h-8 w-8 text-white' />
