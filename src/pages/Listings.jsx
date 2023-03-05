@@ -3,6 +3,16 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
 import { Footer, ListingCard, Navbar } from '../components/index';
 
+/**
+
+@component
+Listings component displaying a grid of listings with pagination.
+@param {function} handleLogout - Function to handle user logout.
+@param {object} profile - Object containing user profile information.
+@param {array} listings - Array of listings to display.
+@returns {JSX.Element}
+*/
+
 const Listings = ({ handleLogout, profile, listings }) => {
 	const listingsPerPage = 16;
 	const [currentPage, setCurrentPage] = useState(1);

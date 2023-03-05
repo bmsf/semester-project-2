@@ -1,6 +1,15 @@
 import { API_AUCTION_URL } from '../api/constants';
 import * as storage from '../storage/index.mjs';
 
+/**
+ * Deletes a listing with the specified ID
+ * @param {string} listingId - ID of the listing to be deleted
+ * @returns {void}
+ * @throws {Error} If an error occurs during the deletion of the listing
+ * @example
+ * deleteListing('abc123');
+ */
+
 const deleteListing = async (listingId) => {
 	try {
 		const token = storage.load('token');

@@ -1,4 +1,9 @@
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+/**
+
+Calculates the time remaining between the current date and a specified end date.
+@param {string} endsAt - The end date in ISO string format.
+@returns {Object} - An object with properties representing the remaining time in days, hours, and minutes.
+*/
 
 const calculateTimeRemaining = (endsAt) => {
 	const date = new Date(endsAt).getTime();

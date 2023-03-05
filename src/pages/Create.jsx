@@ -3,6 +3,16 @@ import { useState } from 'react';
 import { createListing } from '../api/index';
 import { Footer, Navbar } from '../components/index';
 
+/**
+
+React Component for creating a new auction listing.
+@component
+@param {Object} props - Component props
+@param {Function} props.handleLogout - Logout function
+@param {Object} props.profile - User profile object
+@returns {JSX.Element} - Rendered component
+*/
+
 const Create = ({ handleLogout, profile }) => {
 	const [formData, setFormData] = useState({
 		title: '',
@@ -133,7 +143,7 @@ const Create = ({ handleLogout, profile }) => {
 				</div>
 			</main>
 			<div className='mt-20'>
-			<Footer />
+				<Footer />
 			</div>
 		</>
 	);

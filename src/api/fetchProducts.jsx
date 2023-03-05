@@ -2,15 +2,20 @@ import { API_AUCTION_URL } from './constants';
 const action = '/listings';
 
 /**
- * @description
  * Fetches a list of active products and updates the state of the given setListings function with the response data.
+ *
  * @async
- * @function
+ * @function fetchProducts
+ *
  * @param {function} setListings - A function to update the state with the fetched data.
+ * @param {function} setIsLoading - A function to set the loading state.
+ *
  * @throws {Error} - If the API call fails, an error is thrown with a message "Failed to fetch product details".
- * @returns {Promise<void>}
+ *
+ * @returns {Promise<void>} - Returns a promise that resolves to void.
+ *
  * @example
- * FetchProducts(setListings);
+ * FetchProducts(setListings, setIsLoading);
  */
 
 const fetchProducts = async (setListings, setIsLoading) => {

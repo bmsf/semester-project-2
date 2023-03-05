@@ -4,7 +4,20 @@ import placeholder from '../assets/placeholder-image.png';
 import calculateTimeRemaining from '../utils/calculateTimeRemaining';
 import truncateDescription from '../utils/truncateDescription';
 
-const ProductCard = ({ listing }) => {
+/**
+ * Renders a product card component with title, image, description, time left, and current bids.
+ * @param {Object} props - The props object for the component.
+ * @param {Object} props.listing - The listing object containing information about the product.
+ * @param {string} props.listing.id - The unique ID of the product.
+ * @param {string} props.listing.title - The title of the product.
+ * @param {string} props.listing.description - The description of the product.
+ * @param {string} props.listing.media - The URL of the product image.
+ * @param {string[]} props.listing.tags - An array of tags associated with the product.
+ * @param {Date} props.listing.endsAt - The date and time when the auction for the product ends.
+ * @returns {JSX.Element} - Returns a JSX element of the product card component.
+ */
+
+const ListingCard = ({ listing }) => {
 	const { id, title, description, media, tags, endsAt } = listing;
 
 	const timeRemaining = calculateTimeRemaining(endsAt);
@@ -49,4 +62,4 @@ const ProductCard = ({ listing }) => {
 	);
 };
 
-export default ProductCard;
+export default ListingCard;

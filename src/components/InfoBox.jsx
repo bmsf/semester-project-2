@@ -3,6 +3,15 @@ import { motion as m, AnimatePresence } from 'framer-motion';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import calculateTimeRemaining from '../utils/calculateTimeRemaining';
 
+/**
+ * A component that displays information with an expandable/collapsible container.
+ * @param {Object} props - The props object.
+ * @param {string} props.title - The title of the information box.
+ * @param {React.ReactNode} props.children - The children to render inside the container.
+ * @param {string} props.endsAt - The date/time string when the auction ends (if applicable).
+ * @returns {JSX.Element} - The JSX element representing the InfoBox component.
+ */
+
 const InfoBox = ({ title, children, endsAt }) => {
 	const [expanded, setExpanded] = useState(false);
 

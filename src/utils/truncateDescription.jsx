@@ -1,4 +1,13 @@
-import React from 'react';
+/**
+
+Truncates the given description string to the given maximum length, adding ellipsis if necessary.
+
+@param {string} description - The description string to truncate.
+
+@param {number} maxLength - The maximum length of the truncated string.
+
+@returns {string} - The truncated description string.
+*/
 
 const truncateDescription = (description, maxLength) => {
 	if (!description) {

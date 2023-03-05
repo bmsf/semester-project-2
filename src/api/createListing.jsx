@@ -3,28 +3,31 @@ import * as storage from '../storage';
 
 const action = '/listings';
 const method = 'post';
+
 /**
- * @description
  * Creates a new auction listing using the provided data
+ *
+ * @function
+ * @async
  * @param {Object} listingData - Data for the new auction listing
  * @param {string} listingData.title - Title of the listing
  * @param {string} listingData.description - Description of the listing
  * @param {string} listingData.image - URL of the listing's image
  * @param {number} listingData.endDate - Unix timestamp of the end date for the auction
- * @returns {void}
  * @throws {Error} If an error occurs during the creation of the listing
+ * @returns {void}
+ *
  * @example
- createListing({
- title: "Example listing",
- description: "This is an example auction listing",
- image: "https://example.com/listing.jpg",
- endDate: March 3, 2022 00:00:00 UTC
-});
-*/
+ * createListing({
+ *  title: "Example listing",
+ *  description: "This is an example auction listing",
+ *  image: "https://example.com/listing.jpg",
+ *  endDate: March 3, 2022 00:00:
+ */
 
 const createListing = async (listingData) => {
 	try {
-		console.log(listingData)
+		console.log(listingData);
 		const token = storage.load('token');
 		const createListingURL = API_AUCTION_URL + action;
 

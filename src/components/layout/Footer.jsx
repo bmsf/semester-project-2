@@ -2,6 +2,17 @@ import { CiTwitter, CiFacebook, CiInstagram } from 'react-icons/ci';
 
 import logo from '../../assets/logo-no-background.png';
 
+/**
+ * Footer component that displays the BMSF logo, a copyright notice and social media icons.
+ *
+ * @function Footer
+ *
+ * @returns {JSX.Element} - Rendered component.
+ *
+ * @example
+ * <Footer />
+ */
+
 const Footer = () => {
 	return (
 		<footer className='flex flex-col justify-center items-center'>

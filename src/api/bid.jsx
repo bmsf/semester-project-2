@@ -3,13 +3,17 @@ import { API_AUCTION_URL } from './constants';
 /**
  * Sends a bid to the API for a given listing ID.
  * @async
+ * @function
  * @param {string} id - The ID of the listing to bid on.
- * @param {Object} formData - The data to send in the bid request.
- * @returns {Promise<void>} A Promise that resolves if the bid is successful.
+ * @param {Object} newBid - The data to send in the bid request.
+ * @param {string} token - The user's authentication token.
+ * @param {Object} profile - The user's profile data.
+ * @param {function} updateProfile - The function used to update the user's profile data.
  * @throws {Error} If the bid request fails.
+ * @returns {Promise<void>} A Promise that resolves if the bid is successful.
  * @example
  * // Send a bid for listing "abc123" with bid amount 100
- * Bid("abc123", { amount: 100 });
+ * bid("abc123", { amount: 100 }, token, profile, updateProfile);
  */
 
 const bid = async (id, newBid, token, profile, updateProfile) => {

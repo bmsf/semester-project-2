@@ -14,9 +14,15 @@ import {
 	MyListings,
 	NotFound,
 } from './pages/index';
-
 import { fetchProducts } from './api/index';
 import * as storage from './storage/index.mjs';
+
+/**
+
+Main application component that renders different pages based on the current route.
+
+@returns {JSX.Element} App component JSX code.
+*/
 
 function App() {
 	const [token, setToken] = useState(storage.load('token'));

@@ -1,5 +1,11 @@
 import heroImage from '../../assets/undraw_business_deal_re_up4u.svg';
 
+/**
+ * Displays the Hero section of the page.
+ *
+ * @returns {JSX.Element} The Hero component.
+ */
+
 const Hero = () => {
 	return (
 		<section className='bg-primary flex flex-col pb-20 lg:px-10 lg:pb-0 lg:flex-row flex-1 items-center justify-center -z-10 relative'>

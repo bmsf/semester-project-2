@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 
+/**
+ * Renders an image carousel that allows the user to browse through an array of images.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {string[]} props.media - An array of image URLs.
+ * @returns {JSX.Element} - The rendered ImageCarousel component.
+ */
+
 const ImageCarousel = ({ media }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 

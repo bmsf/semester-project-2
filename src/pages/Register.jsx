@@ -12,6 +12,13 @@ import Button from '../components/Button';
 import registerAuth from '../api/auth/registerAuth';
 import logo from '../assets/logo-no-background.png';
 
+/**
+
+A React functional component for user registration form.
+@component
+@return {JSX.Element}
+*/
+
 function Register() {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formData, setFormData] = useState({

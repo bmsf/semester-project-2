@@ -5,15 +5,24 @@ import { AnimatePresence, motion as m } from 'framer-motion';
 import { Navbar, Button, Footer } from '../components/index';
 import updateAvatar from '../api/updateAvatar';
 
+/**
+
+A component that renders the user's profile and allows them to edit their avatar.
+@param {Object} props - The component props.
+@param {Function} props.handleLogout - The function to handle logout.
+@param {Object} props.profile - The user profile object.
+@param {string} props.token - The user authentication token.
+@param {Function} props.updateProfile - The function to update the user profile.
+@returns {JSX.Element} - The JSX code for the Profile component.
+*/
+
 const Profile = ({ handleLogout, profile, token, updateProfile }) => {
 	const [openModal, setOpenModal] = useState(false);
 
 	const { name, email, avatar } = profile || {};
 
 	const handleBackdropClick = (e) => {
-		// Check if the target element is the backdrop (i.e., has the 'backdrop' id)
 		if (e.target.id === 'backdrop') {
-			// Close the menu
 			setOpenModal(false);
 		}
 	};

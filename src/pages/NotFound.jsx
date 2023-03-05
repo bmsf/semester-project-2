@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
 
+/**
+ * Renders the 404 page not found component with a link to go back to the home page.
+ *
+ * @returns {JSX.Element} JSX.Element
+ */
+
 const NotFound = () => {
 	return (
 		<div className='min-h-screen bg-gray-100 flex flex-col justify-center items-center'>

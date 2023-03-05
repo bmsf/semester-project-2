@@ -16,7 +16,18 @@ import bid from '../api/bid';
 import placeholder from '../assets/placeholder-image.png';
 import MakeBidModal from '../components/layout/MakeBidModal';
 
-const Product = ({ profile, handleLogout, token, updateProfile }) => {
+/**
+ * Renders the product page.
+ *
+ * @param {Object} props - Component props.
+ * @param {Object} props.profile - User profile object.
+ * @param {function} props.handleLogout - Function to handle user logout.
+ * @param {string} props.token - JWT token string.
+ * @param {function} props.updateProfile - Function to update user profile.
+ * @returns {JSX.Element} - Rendered component.
+ */
+
+const Listing = ({ profile, handleLogout, token, updateProfile }) => {
 	const { id } = useParams();
 
 	const [product, setProduct] = useState(null);
@@ -196,4 +207,4 @@ const Product = ({ profile, handleLogout, token, updateProfile }) => {
 	);
 };
 
-export default Product;
+export default Listing;

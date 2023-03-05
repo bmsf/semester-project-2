@@ -3,16 +3,14 @@ const action = '/auth/register';
 const method = 'post';
 
 /**
- * @description
  * Registers a new user by sending a POST request with the registration form data to the API.
  * @async
- * @function registerAuth
+ * @function
  * @param {Object} formData - An object containing the registration form data.
  * @throws {Error} If there was an error with the API call.
  * @returns {Promise<void>} A promise that resolves with no value.
- * @param {*} formData
  * @example
- * RegisterAuth(formData)
+ * registerAuth(formData);
  */
 
 const registerAuth = async (formData) => {

@@ -1,6 +1,19 @@
 import { AnimatePresence, motion as m } from 'framer-motion';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
+/**
+ * MakeBidModal component displays a modal window for making a bid.
+ *
+ * @param {Object} props - The component props.
+ * @param {boolean} props.open - A boolean indicating whether the modal is open.
+ * @param {Function} props.handleClose - A function to handle closing the modal.
+ * @param {Object} props.highestBid - An object with information about the highest bid.
+ * @param {Function} props.onChange - A function to handle changes to the input field.
+ * @param {Function} props.onSubmit - A function to handle submitting the bid form.
+ * @param {Object} props.formData - An object containing the form data.
+ * @returns {JSX.Element} - The rendered component.
+ */
+
 const MakeBidModal = ({
 	open,
 	handleClose,

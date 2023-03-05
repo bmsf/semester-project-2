@@ -6,6 +6,12 @@ import { Button } from '../components/index';
 import loginAuth from '../api/auth/loginAuth';
 import logo from '../assets/logo-no-background.png';
 
+/**
+ * Login component that handles user login.
+ *
+ * @component
+ */
+
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formData, setFormData] = useState({
