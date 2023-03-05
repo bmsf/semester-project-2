@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { Footer, ListingCard, Navbar } from '../components/index';
 
 const Listings = ({ handleLogout, profile, listings }) => {
-	const listingsPerPage = 16;
+	const listingsPerPage = 8;
 	const [currentPage, setCurrentPage] = useState(1);
 	const totalPages = Math.ceil(listings.length / listingsPerPage);
 	const startIndex = (currentPage - 1) * listingsPerPage;

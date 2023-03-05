@@ -63,65 +63,68 @@ const NavbarMobile = ({ profile, avatar, name, email, handleLogout }) => {
 					</div>
 
 					<ul className='flex flex-col gap-6 m-6 pb-10'>
-						<li className='flex items-center justify-between cursor-pointer'>
-							<div className='flex gap-6'>
-								<HomeIcon className='h-6 w-6' />
-								<Link to='/' reloadDocument>
-									Home
-								</Link>
-							</div>
-							<ChevronRightIcon className='h-6 w-6' />
-						</li>
+						<Link to='/'>
+							<li className='flex items-center justify-between cursor-pointer'>
+								<div className='flex gap-6'>
+									<HomeIcon className='h-6 w-6' />
+									<p>Home</p>
+								</div>
+								<ChevronRightIcon className='h-6 w-6' />
+							</li>
+						</Link>
 
-						<li className='flex items-center border-b pb-10 justify-between cursor-pointer'>
-							<div className='flex gap-6 '>
-								<BuildingLibraryIcon className='h-6 w-6' />
-								<Link to='/listings' reloadDocument>
-									Listings
-								</Link>
-							</div>
-							<ChevronRightIcon className='h-6 w-6' />
-						</li>
+						<Link to='/listings' reloadDocument>
+							<li className='flex items-center border-b pb-10 justify-between cursor-pointer'>
+								<div className='flex gap-6 '>
+									<BuildingLibraryIcon className='h-6 w-6' />
+									<p> Listings</p>
+								</div>
+								<ChevronRightIcon className='h-6 w-6' />
+							</li>
+						</Link>
 
 						{profile ? (
 							<>
-								<li className='flex  items-center justify-between cursor-pointer'>
-									<div className='flex gap-6'>
-										<UserIcon className='h-6 w-6' />
-										<Link to='/profile' reloadDocument>
-											Profile
-										</Link>
-									</div>
-									<ChevronRightIcon className='h-6 w-6' />
-								</li>
-								<li className='flex  items-center justify-between cursor-pointer'>
-									<div className='flex gap-6'>
-										<PlusCircleIcon className='h-6 w-6' />
-										<Link to='/create' reloadDocument>
-											Create Listing
-										</Link>
-									</div>
-									<ChevronRightIcon className='h-6 w-6' />
-								</li>
+								<Link to='/profile' reloadDocument>
+									<li className='flex  items-center justify-between cursor-pointer'>
+										<div className='flex gap-6'>
+											<UserIcon className='h-6 w-6' />
 
-								<li className='flex  items-center justify-between border-b pb-10 cursor-pointer'>
-									<div className='flex gap-6'>
-										<NewspaperIcon className='h-6 w-6' />
-										<Link to='/mylistings' reloadDocument>
-											My listings
-										</Link>
-									</div>
-									<ChevronRightIcon className='h-6 w-6' />
-								</li>
-								<li className='flex  items-center justify-between cursor-pointer'>
-									<div className='flex gap-6'>
-										<ArrowLeftOnRectangleIcon className='h-6 w-6' />
-										<Link to='./' reloadDocument onClick={handleLogout}>
-											Sign out
-										</Link>
-									</div>
-									<ChevronRightIcon className='h-6 w-6' />
-								</li>
+											<p>Profile</p>
+										</div>
+										<ChevronRightIcon className='h-6 w-6' />
+									</li>
+								</Link>
+
+								<Link to='/create' reloadDocument>
+									<li className='flex  items-center justify-between cursor-pointer'>
+										<div className='flex gap-6'>
+											<PlusCircleIcon className='h-6 w-6' />
+											<p>Create Listing</p>
+										</div>
+										<ChevronRightIcon className='h-6 w-6' />
+									</li>
+								</Link>
+
+								<Link to='/mylistings' reloadDocument>
+									<li className='flex  items-center justify-between border-b pb-10 cursor-pointer'>
+										<div className='flex gap-6'>
+											<NewspaperIcon className='h-6 w-6' />
+											<p>My listings</p>
+										</div>
+										<ChevronRightIcon className='h-6 w-6' />
+									</li>
+								</Link>
+
+								<Link to='./' reloadDocument onClick={handleLogout}>
+									<li className='flex  items-center justify-between cursor-pointer'>
+										<div className='flex gap-6'>
+											<ArrowLeftOnRectangleIcon className='h-6 w-6' />
+											<p>Sign out</p>
+										</div>
+										<ChevronRightIcon className='h-6 w-6' />
+									</li>
+								</Link>
 							</>
 						) : (
 							<div className='flex gap-5 justify-center mt-10'>

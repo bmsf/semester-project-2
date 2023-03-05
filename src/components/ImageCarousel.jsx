@@ -4,6 +4,8 @@ import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/outline';
 const ImageCarousel = ({ media }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
+	console.log(media);
+
 	const handlePrevClick = () => {
 		if (currentIndex === 0) {
 			setCurrentIndex(media.length - 1);
