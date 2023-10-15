@@ -1,78 +1,73 @@
-# BidCircle - Semester Projct
+# BidCircle Auction House
 
-Welcome to my Vite React app! This app was built using Vite and React.
+## Description
 
-## Getting Started
+The Auction Website project is tasked with developing a comprehensive front-end interface for an existing API-driven auction platform. Users will be able to access various features, such as creating listings, placing bids, and managing their accounts. With a unique credit system, users can buy and sell items while enjoying a seamless online auction experience. Registered users can also view their transaction history.
 
-To get started, first clone this repository:
+- User Registration: Users with stud.noroff.no email addresses can register for an account.
+- User Authentication: Registered users can log in and out of their accounts.
+- Profile Customization: Users can update their avatars and personalize their profiles.
+- Credit Management: Users can view their total credit balance.
+- Listing Creation: Registered users can create listings, including titles, deadline dates, media galleries, and descriptions.
+- Bidding: Users can add bids to listings created by other users.
+- Bid History: Users can view the bids they've made on a listing.
+- Browse Listings: Unregistered users can search through available listings.
+
+## Built With
+
+- [React.js](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+
+### Setup and installation
+
+To run this project locally:
+
+- Ensure you have Node.js and npm installed
+
+#### Steps
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/bmsf/semester-project-2.git
 ```
 
-Next, navigate to the project directory:
+2. Navigate to the project directory:
 
 ```bash
 cd semester-project-2
 ```
 
-Then, install the dependencies:
+3. Install the dependencies:
 
 ```bash
 npm install
 ```
 
-Finally, start the development server:
+4. Run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
 ```
 
-The app should now be running on http://localhost:5173/.
+Open [http://localhost:5173/](http://localhost:5173/) with your browser to see the result.
 
-### Available Scripts
+## Contributing
 
-In the project directory, you can run:
+If you would like to contribute to the project, please follow these steps:
 
-```bash
-npm run dev
-```
+1. Fork the repository on GitHub.
+2. Clone your forked repository to your local machine.
+3. Create a new branch to work on your feature or bug fix.
+4. Make your changes and commit them with descriptive commit messages.
+5. Push your changes to your forked repository.
+6. Open a pull request to the original repository.
 
-Runs the app in the development mode. Open http://localhost:5173/ to view it in the browser.
+## Contact
 
-The page will reload if you make edits. You will also see any lint errors in the console.
-
-```bash
-npm run build
-```
-
-Builds the app for production to the build folder. It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes. Your app is ready to be deployed!
-
-```bash
-npm start
-```
-
-Runs the app in the production mode. Before running this command, make sure to run npm run build to build the app for production.
-
-Folder strucutre
-
-```bash
-SEMESTER-PROJECT-2/
-├── src/
-│   ├── components/
-│   │   └── layout
-│   │   └── Navbar
-│   ├── pages/
-│   ├── storage/
-│   ├── App.jsx/
-│   ├── index.css/
-│   ├── main.jsx/
-├── README.md
-├── node_modules/
-├── package.json
-├── tailwind.config.cjs
-├── vite.config.js
-├── .gitignore
-```
+[My LinkedIn page](https://www.linkedin.com/in/bj%C3%B8rn-magnus-fromreide-18b1a1170/)
